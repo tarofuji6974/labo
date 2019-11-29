@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Esquisse</title>
+    <title>MaterializecssTest</title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+ 
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--レスポンシブデザインにするために追加-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
-
+ 
   <body>
-    <%= yield %>
+    <!--グローバルナビゲーションの配置-->
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Logo</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="#">Sass</a></li>
+          <li><a href="#">Components</a></li>
+          <li><a href="#">JavaScript</a></li>
+        </ul>
+      </div>
+    </nav>
+     
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
