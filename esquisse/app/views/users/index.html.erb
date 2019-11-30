@@ -1,0 +1,17 @@
+<div class="main user-show">
+  <div class="container">
+    <div class="user">
+      <h2><%= @user.name %></h2>
+        <!--ログインしており、IDが一致しているユーザーのみ表示させる処理を実装予定-->
+        <!--
+        -->
+        <div class="user-list">
+        <ul>
+          <li><%= link_to("favorite","/favorite")%></a></li>
+          <li><%= link_to("profile_edit","/edit")%></a></li>
+        </ul>
+      </div>
+    </div>
+      <!--ユーザーに紐づく画像一覧を表示させる-->
+  </div>
+</div>

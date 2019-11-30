@@ -3,26 +3,30 @@
   <head>
     <title>MaterializecssTest</title>
     <%= csrf_meta_tags %>
- 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <!--レスポンシブデザインにするために追加-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
- 
   <body>
     <!--グローバルナビゲーションの配置-->
     <nav>
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Logo</a>
+        <%= link_to("Esquisse","/",class: "brand-logo") %>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="#">Sass</a></li>
-          <li><a href="#">Components</a></li>
-          <li><a href="#">JavaScript</a></li>
+          <li><%= link_to("photo","/view")%></a></li>
+          <li><%= link_to("post","/post_form")%></a></li>
+          <li><%= link_to("sign up","/signup")%></li>
+          <li><%= link_to("logout","/logout")%></li>
         </ul>
       </div>
     </nav>
-     
+    <!--Flashメッセージがあれば表示させる-->
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
     <div class="container">
       <%= yield %>
     </div>

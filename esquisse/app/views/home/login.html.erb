@@ -1,4 +1,22 @@
-<h1>Hello Materialize</h1>
+<div class="main users-new">
+  <div class="container">
+    <div class="form-heading">ログイン</div>
+    <div class="form users-form">
+      <div class="form-body">
+        <% if @error_message %>
+          <div class="form-error">
+            <%= @error_message %>
+          </div>
+        <% end %>
 
-<!-- Modalのトリガー。ボタン部分-->
-<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+        <%= form_tag("/home/index") do %>
+          <p>ユーザー名</p>
+          <input name="name" value="<%= @name %>">
+          <p>パスワード</p>
+          <input type ="password" name="password_digest" value="<%= @password %>">
+          <input type="submit" value="Login">
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
