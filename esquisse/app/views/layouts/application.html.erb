@@ -12,12 +12,17 @@
     <!--グローバルナビゲーションの配置-->
     <nav>
       <div class="nav-wrapper">
-        <%= link_to("Esquisse","/",class: "brand-logo") %>
+        <%= link_to("Esquisse","#",class: "brand-logo") %>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <% if @current_user %>
+          <li><%= link_to(@current_user.name,"/users/#{@current_user.id}")%></li>
           <li><%= link_to("photo","/view")%></a></li>
-          <li><%= link_to("post","/post_form")%></a></li>
-          <li><%= link_to("sign up","/signup")%></li>
-          <li><%= link_to("logout","/logout")%></li>
+          <li><%= link_to("post","/#{@current_user.id}/post_form")%></a></li>
+          <li><%= link_to("logout","/logout",{method: :post})%></li>
+          <% else %>
+            <li><%= link_to("login","/")%></li>
+            <li><%= link_to("sign up","/users/sign_up")%></li>
+          <% end %>
         </ul>
       </div>
     </nav>

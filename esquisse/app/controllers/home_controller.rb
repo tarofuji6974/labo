@@ -16,6 +16,8 @@ class HomeController < ApplicationController
       #session[:user_id] = @user.id
       flash[:notice] = "ログインしました"
 
+      #セッションの保存
+      session[:user_id] = @user.id
       #ユーザー個別のページへリダイレクト
       redirect_to("/users/#{@user.id}")
     else
@@ -30,5 +32,9 @@ class HomeController < ApplicationController
   end
 
   def logout
+    #ログアウト実行時、セッションを切りログイン画面にリダイレクトする
+    session[:user_id] = nil
+    flash[:notice] = "ログアウトしました"
+    redirect_to("/")
   end
 end

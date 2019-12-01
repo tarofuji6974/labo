@@ -2,5 +2,19 @@
   <div class="container">
     <h1 class="users-heading">Photos</h1>
     <!--後日実装予定-->
+    <% @photos.each do |photo| %>
+          <div class="photo_box">
+            <!-- プロフィール画像を表示-->
+            <img src= "<%= "/photo_image/#{photo.image_name}" %>">
+          </div>
+          <div class="comment_box">
+            <!-- 名前を表示。クリックで詳細画面へ遷移-->
+            <%= photo.comment %>
+            <div class= "good_icon">
+              <img src = "/icon/good.jpeg">
+            </div>
+          </div>
+
+      <% end %>
   </div>
 </div>

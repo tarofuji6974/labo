@@ -1,6 +1,29 @@
 <div class="main users-index">
   <div class="container">
     <h1 class="users-heading">Edit</h1>
-    <!--後日実装予定-->
+    <div class="form users-form">
+      <div class="form-body">
+        <!--エラーメッセージの表示-->
+        <% @user.errors.full_messages.each do |message| %>
+          <div class="form-error">
+            <%= message %>
+          </div>
+        <% end %>
+
+        <%= form_tag("/#{@user.id}/update",{multipart: true}) do %>
+          <p>user name</p>
+          <input name="name" value="<%= @user.name %>">
+          <p>image</p>
+          <input name="image" type="file">
+          <p>profile</p>
+          <textarea name="profile" value="<%= @user.profile %>"></textarea>
+          <p>password</p>
+          <input name="password_digest" type="password" value="<%= @user.password_digest %>">
+          <p>password(confirm)</p>
+          <input name="repassword" type="password">
+          <input type="submit" value="Save">
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

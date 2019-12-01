@@ -2,5 +2,23 @@
   <div class="container">
     <h1 class="users-heading">Post</h1>
     <!--後日実装予定-->
+    <div class="form users-form">
+      <div class="form-body">
+        <!--エラーメッセージの表示-->
+        <% @photo.errors.full_messages.each do |message| %>
+          <div class="form-error">
+            <%= message %>
+          </div>
+        <% end %>
+
+        <%= form_tag("/#{@user.id}/post",{multipart: true}) do %>
+          <p>image</p>
+          <input name="image_name" type="file">
+          <p>comment</p>
+          <textarea name="comment"><%= @photo.comment %></textarea>
+          <input type="submit" value="post">
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
