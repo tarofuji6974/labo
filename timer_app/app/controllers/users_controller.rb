@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def index
     #全ユーザー情報を取得
     @users = User.all.order(created_at: :desc)
