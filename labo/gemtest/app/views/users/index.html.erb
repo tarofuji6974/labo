@@ -3,4 +3,6 @@
   <a href="/users/<%= user.id %>"><%= user.email %></a>
   <hr>
 <% end %>
+<%= paginate @users %>
+
 <%= link_to "ホームへ戻る", posts_path %>
