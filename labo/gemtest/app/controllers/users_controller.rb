@@ -5,6 +5,10 @@ class UsersController < ApplicationController
   def index
     #@users = User.all
     @users = User.page(params[:page]).per(PER)
+
+    #ransack
+    @q = User.ransack(params[:q])
+    @ask = @q.result(distinct: true)
   end
 
   def show

@@ -33,6 +33,9 @@ gem 'devise'
 #Materiallizeの導入前準備
 gem 'sassc-rails'
 
+#ransackの導入
+gem 'ransack'
+
 #jqueryの導入
 gem 'jquery-rails'
 
