@@ -1,10 +1,11 @@
 <%= search_form_for @q do |f| %>
   <%= f.label :name, "Keyword" %>
+  <%= f.search_field :email_cont %>
   <%= f.submit "検索" %>
 <% end %>
 
 <h1>ユーザー一覧</h1>
-<% @users.each do |user| %>
+<% @ask.each do |user| %>
   <a href="/users/<%= user.id %>"><%= user.email %></a>
   <hr>
 <% end %>

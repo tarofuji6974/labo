@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :liked_posts, through: :likes, source: :post
 
   #いいね!しているかどうかの判定
-  def already_linked?(post)
+  def already_liked?(post)
     self.likes.exists?(post_id: post.id)
   end
 
