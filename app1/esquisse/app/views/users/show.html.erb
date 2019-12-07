@@ -1,0 +1,14 @@
+<h1>ユーザー詳細ページ</h1>
+<h3><%= @user.email %></h3>
+<h2>投稿内容</h2>
+<% @user.photos.each do |photo| %>
+  <a href="/photos/<%= photo.id %>"><%= photo.content %></a>
+  <hr>
+<% end %>
+<h3>いいねしている投稿</h3>
+<% @user.favorite_photo.each do |photo| %>
+  <%= photo.user.email %>
+  <%= photo.content %>
+<% end %>
+<%= link_to "ユーザー一覧へ", users_path %>
+<%= link_to "ホームへ戻る", photos_path %>
