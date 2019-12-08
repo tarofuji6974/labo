@@ -3,6 +3,7 @@
   <%= link_to "ログアウト", destroy_user_session_path, :method => :delete %>
   <%= link_to "マイページへ", user_path(current_user.id) %>
   <%= link_to "ユーザー一覧へ", users_path %>
+  <%= link_to "Post", "#{current_user.id}/post" %>
   <h2>投稿する</h2>
   <%= form_for @photo do |f| %>
     <%= f.text_field :content %>

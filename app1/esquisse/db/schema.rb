@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_07_134536) do
+ActiveRecord::Schema.define(version: 2019_12_08_090128) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "photo_id", null: false
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 2019_12_07_134536) do
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image_name"
+    t.string "user_name"
     t.index ["user_id"], name: "index_photos_on_user_id"
   end
 
