@@ -4,6 +4,7 @@
   <%= link_to "マイページへ", user_path(current_user.id) %>
   <%= link_to "ユーザー一覧へ", users_path %>
   <%= link_to "Post", "#{current_user.id}/post" %>
+  <%= link_to "Photo", "/view" %>
   <h2>投稿する</h2>
   <%= form_for @photo do |f| %>
     <%= f.text_field :content %>

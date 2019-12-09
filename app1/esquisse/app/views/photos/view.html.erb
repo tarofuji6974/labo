@@ -1,0 +1,16 @@
+<div class="main posts-index">
+  <div class="container">
+    <% @photos.each do |photo|  %>
+      <div class="posts-index-item">
+          <div class="img-box">
+          <!-- 写真を表示-->
+          <img src="<%= "/post_images/#{photo.image_name}" %>" >
+        </div>
+          <!-- コメントを表示-->
+        <div class="photo-content">
+          <%= photo.content %>
+        </div>
+      </div>
+    <%end %>
+  </div>
+</div>

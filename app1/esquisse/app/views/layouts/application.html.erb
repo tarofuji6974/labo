@@ -17,9 +17,13 @@
       <div class="nav-wrapper">
         <a href="#" class="brand-logo">Esquisse</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="#">Sass</a></li>
-          <li><a href="#">Components</a></li>
-          <li><a href="#">JavaScript</a></li>
+          <% if @current_user %>
+            <li><%= link_to("Photo", "/view") %></li>
+            <li><%= link_to("Post", "/#{current_user.id}/post") %></li>
+          <% else %>
+            <li><%= link_to("SignUp", "/sign_up") %></li>
+            <li><%= link_to "LogOut", destroy_user_session_path, :method => :delete %></li>
+          <% end %>
         </ul>
       </div>
     </nav>

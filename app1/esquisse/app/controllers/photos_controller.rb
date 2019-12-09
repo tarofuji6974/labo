@@ -47,6 +47,11 @@ class PhotosController < ApplicationController
     @photo =Photo.new
   end
 
+  #一覧画面の表示
+  def view
+    @photos = Photo.all.order(created_at: :desc)
+  end
+
   private
   def post_params
     params.require(:photo).permit(:content)
