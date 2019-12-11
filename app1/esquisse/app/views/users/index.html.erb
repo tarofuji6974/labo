@@ -1,6 +1,24 @@
 <h1>ユーザー一覧</h1>
-<% @users.each do |user| %>
+<%= search_form_for @q do |f| %>
+  <%= f.label :name, "Keyword" %>
+  <%= f.search_field :email_cont %>
+  <%= f.submit "Search" %>
+<% end %>
+
+<% @ask.each do |user| %>
   <a href="/users/<%= user.id %>"><%= user.email %></a>
   <hr>
 <% end %>
+
+<%= search_form_for @qq do |f| %>
+  <%= f.label :content, "Keyword" %>
+  <%= f.search_field :content_cont %>
+  <%= f.submit "Search" %>
+<% end %>
+
+<% @ar.each do |user| %>
+  <%= user.content %>
+  <hr>
+<% end %>
+
 <%= link_to "ホームへ戻る", photos_path %>

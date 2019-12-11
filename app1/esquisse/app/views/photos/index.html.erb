@@ -1,23 +1,18 @@
-<h1>いいねサンプル</h1>
+<h1>MyPage</h1>
 <% if user_signed_in? %>
-  <%= link_to "ログアウト", destroy_user_session_path, :method => :delete %>
-  <%= link_to "マイページへ", user_path(current_user.id) %>
-  <%= link_to "ユーザー一覧へ", users_path %>
+  <!--お気に入りページのリンク表示を予定-->
+  <%= link_to "Profile", users_path %>
   <%= link_to "Post", "#{current_user.id}/post" %>
   <%= link_to "Photo", "/view" %>
-  <h2>投稿する</h2>
-  <%= form_for @photo do |f| %>
-    <%= f.text_field :content %>
-    <%= f.submit %>
-  <% end %>
+  <%= link_to "LogOut", destroy_user_session_path, :method => :delete %>
   <hr>
-  <h2>投稿一覧</h2>
-  <% @photos.each do |photo| %>
-    <a href="/users/<%= photo.user.id %>"><%= photo.user.email %></a>
+  <h2>MyPhoto</h2>
+  <% @user.photos.each do |photo| %>
     <a href="/photos/<%= photo.id %>"><%= photo.content %></a>
     (<%= photo.favorite_user.count %>)
+    <%= link_to("Delete","/#{photo.id}/destroy",{method:"post",data: { confirm: "削除しますか？" }}) %>
+    <hr>
   <% end %>
-
 <% else %>
   <%= link_to "ユーザー登録", new_user_registration_path %>
   <%= link_to "ログイン", new_user_session_path %>

@@ -1,8 +1,8 @@
 class PhotosController < ApplicationController
+  PER = 10  #投稿の表示数
   before_action :authenticate_user!, only: [:show, :create]
   def index
-    @photos = Photo.all
-    @photo = Photo.new
+    @user = User.find(current_user.id)
   end
 
   def show
@@ -34,13 +34,6 @@ class PhotosController < ApplicationController
       #失敗した場合、情報を保持したまま画像遷移させない
       render("/photos/post_form")
     end
-    #@photo = Photo.new(post_params)
-    #@photo.user_id = current_user.id
-    #if @photo.save
-    #  redirect_back(fallback_location: root_path)
-    #else
-    #  redirect_back(fallback_location: root_path)
-    #end
   end
 
   def post_form
@@ -49,7 +42,22 @@ class PhotosController < ApplicationController
 
   #一覧画面の表示
   def view
-    @photos = Photo.all.order(created_at: :desc)
+    #ransack
+    @q = Photo.ransack(params[:q])
+    @ask = @q.result(distinct: true)
+
+    #ページング(作成日時の降順に表示させるよう修正の必要あり)
+    @photos = Photo.page(params[:page]).per(PER)
+  end
+
+  #投稿の削除
+  def post_destroy
+    @photo = Photo.find_by(id:params[:id])
+    #投稿を削除
+    @photo.destroy
+
+    flash[:notice] = "Post Deleted"
+    redirect_to(root_path)
   end
 
   private

@@ -1,6 +1,12 @@
 <div class="main posts-index">
   <div class="container">
-    <% @photos.each do |photo|  %>
+    <%= search_form_for @q do |f| %>
+      <%= f.label :name, "Keyword" %>
+      <%= f.search_field :content_cont %>
+    <%= f.submit "Search" %>
+    <% end %>
+    <hr>
+    <% @ask.each do |photo|  %>
       <div class="posts-index-item">
           <div class="img-box">
           <!-- 写真を表示-->
@@ -10,7 +16,13 @@
         <div class="photo-content">
           <%= photo.content %>
         </div>
+        <div class="favorite-user-count">
+          <!--いいね表示予定-->
+          (<%= photo.favorite_user.count %>)
+        </div>
       </div>
     <%end %>
+    <!--ページネーション-->
+    <%= paginate @photos %>
   </div>
 </div>
