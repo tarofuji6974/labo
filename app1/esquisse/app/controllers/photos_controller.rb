@@ -1,8 +1,14 @@
 class PhotosController < ApplicationController
   PER = 10  #投稿の表示数
+
   before_action :authenticate_user!, only: [:show, :create]
+  
   def index
-    @user = User.find(current_user.id)
+    if current_user
+      @user = User.find(current_user.id)
+    else
+      redirect_to("/users/sign_in")
+    end
   end
 
   def show
@@ -21,9 +27,8 @@ class PhotosController < ApplicationController
     #画像の保存処理
     if params[:image_name]
       time= DateTime.now
-      @photo.image_name = time.strftime("%Y %-m %-d %-H %-M %-S") + ".jpg"
+      @photo.image_name = time.strftime("%Y%-m%-d%-H%-M%-S") + ".jpg"
       image = params[:image_name]
-    
       File.binwrite("public/post_images/#{@photo.image_name}",image.read)
     end
 
@@ -58,6 +63,15 @@ class PhotosController < ApplicationController
 
     flash[:notice] = "Post Deleted"
     redirect_to(root_path)
+  end
+
+  def fav_cancel
+    @fav = Favorite.find_by(id:params[:id])
+    @fav = Favorite.find_by(id:9)
+    @fav.destroy
+    if @fav != nil
+     @fav.destroy
+   end
   end
 
   private

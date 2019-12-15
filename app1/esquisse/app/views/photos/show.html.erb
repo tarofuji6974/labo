@@ -1,14 +1,22 @@
-<h1>投稿詳細ページ</h1>
-<h3><%= @photo.user.email %></h3>
-<h3><%= @photo.content %></h3>
-<h3>いいね件数: <%= @photo.favorites.count %></h3>
-<% if current_user.already_fav?(@photo) %>
-  <%= button_to 'いいねを取り消す', photo_favorite_path(@photo), method: :delete %>
-<% else %>
-  <%= button_to 'いいね', photo_favorites_path(@photo) %>
-<% end %>
-<h2>いいねしたユーザー</h2>
+<p>Contributor:<%= @photo.user.email %></p>
+<div class="posts-index-item">
+  <div class="img-box">
+    <!-- 写真を表示-->
+    <img src="<%= "/post_images/#{@photo.image_name}" %>" >
+  </div>
+  <div class="photo-content">
+    <!--コメントを表示-->
+    <%= @photo.content %>
+  </div>
+  <p>good: <%= @photo.favorites.count %></p>
+  <% if current_user.already_fav?(@photo) %>
+    <%= button_to 'cancel', photo_favorite_path(@photo), method: :delete %>
+  <% else %>
+    <%= button_to 'good', photo_favorites_path(@photo) %>
+  <% end %>
+</div>
+<h3>Liked User</h3>
 <% @photo.favorite_user.each do |user| %>
   <li><%= user.email %></li>
 <% end %>
-<%= link_to "ホームへ戻る", photos_path %>
+<%= link_to "My Page", photos_path %>

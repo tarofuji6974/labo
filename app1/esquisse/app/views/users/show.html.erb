@@ -2,7 +2,7 @@
 <h3><%= @user.email %></h3>
 <h2>投稿内容</h2>
 <% @user.photos.each do |photo| %>
-  <a href="/photos/<%= photo.id %>"><%= photo.content %></a>
+    <a href="/photos/<%= photo.id %>"><%= photo.content %></a>
   <hr>
 <% end %>
 <h3>いいねしている投稿</h3>

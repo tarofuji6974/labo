@@ -1,9 +1,10 @@
 <h1>MyPage</h1>
 <% if user_signed_in? %>
   <!--お気に入りページのリンク表示を予定-->
-  <%= link_to "Profile", users_path %>
+  <%= link_to "Profile", "/#{current_user.id}/profile" %>
   <%= link_to "Post", "#{current_user.id}/post" %>
   <%= link_to "Photo", "/view" %>
+  <%= link_to "favorite", "/favorite_view" %>
   <%= link_to "LogOut", destroy_user_session_path, :method => :delete %>
   <hr>
   <h2>MyPhoto</h2>

@@ -15,7 +15,12 @@
     <!--グローバルナビゲーションの配置-->
     <nav>
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Esquisse</a>
+        <% if current_user %>
+          <%= link_to("Esquisse", root_path) %>
+        <% else %>
+          <%= link_to("Esquisse", "#") %>
+          <!--<a href="#" class="brand-logo">Esquisse</a>-->
+        <% end %>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <% if current_user %>
             <li><%= link_to("Photo", "/view") %></li>

@@ -10,14 +10,16 @@
       <div class="posts-index-item">
           <div class="img-box">
           <!-- 写真を表示-->
-          <img src="<%= "/post_images/#{photo.image_name}" %>" >
+          <a href="/photos/<%= photo.id %>">
+            <img src="<%= "/post_images/#{photo.image_name}" %>" >
+          </a>
         </div>
           <!-- コメントを表示-->
         <div class="photo-content">
           <%= photo.content %>
         </div>
         <div class="favorite-user-count">
-          <!--いいね表示予定-->
+          <!--いいね件数表示-->
           (<%= photo.favorite_user.count %>)
         </div>
       </div>
