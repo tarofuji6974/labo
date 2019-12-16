@@ -1,0 +1,20 @@
+<div class="main posts-index">
+  <div class="container">
+    <h3>Favorite</h3>
+    <div class="posts-index-item">
+      <% @favorites.each do |like| %>
+        <% photo = Photo.find_by(id: like.photo_id) %>
+          <div class="img-box">
+          <a href="/photos/<%= photo.id %>">
+            <img src="<%= "/post_images/#{photo.image_name}" %>" >
+          </a>
+        </div>
+        <div class="photo-content">
+          <%= photo.content %>
+        </div>
+      <% end %>
+    <!--ページネーション-->
+    <%= paginate @fav %>
+    </div>
+  </div>
+</div>

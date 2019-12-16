@@ -4,17 +4,24 @@
   <%= link_to "Profile", "/#{current_user.id}/profile" %>
   <%= link_to "Post", "#{current_user.id}/post" %>
   <%= link_to "Photo", "/view" %>
-  <%= link_to "favorite", "/favorite_view" %>
+  <%= link_to "favorite", "#{current_user.id}//favorite" %>
   <%= link_to "LogOut", destroy_user_session_path, :method => :delete %>
   <hr>
   <h2>MyPhoto</h2>
   <% @user.photos.each do |photo| %>
-    <a href="/photos/<%= photo.id %>"><%= photo.content %></a>
+    <div class="img-box">
+      <a href="/photos/<%= photo.id %>">
+        <img src="<%= "/post_images/#{photo.image_name}" %>" >
+      </a>
+    </div>
+    <div class="photo-content">
+      <%= photo.content %>
+    </div>
     (<%= photo.favorite_user.count %>)
     <%= link_to("Delete","/#{photo.id}/destroy",{method:"post",data: { confirm: "削除しますか？" }}) %>
     <hr>
   <% end %>
 <% else %>
-  <%= link_to "ユーザー登録", new_user_registration_path %>
-  <%= link_to "ログイン", new_user_session_path %>
+  <%= link_to "Sign up", new_user_registration_path %>
+  <%= link_to "Login", new_user_session_path %>
 <% end %>

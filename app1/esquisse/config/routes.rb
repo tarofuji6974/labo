@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show,:profile]
 
   resources :photos, only: [:index, :show, :create,:view] do
     resources :favorites, only: [:create, :destroy]
@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   get 'view' => 'photos#view'                   #一覧
   post ':id/destroy' => 'photos#post_destroy'   #投稿削除
   post ':id/fav_cancel' => 'photos#fav_cancel'  #いいね!取り消しアクション
+  get ':id/favorite' => 'favorites#view'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

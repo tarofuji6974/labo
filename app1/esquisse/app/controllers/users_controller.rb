@@ -14,7 +14,6 @@ class UsersController < ApplicationController
   #プロフィール編集画面の表示
   def profile
     @user = User.find(params[:id])
-
   end
 
   #プロフィール更新アクション
