@@ -34,6 +34,7 @@ class PhotosController < ApplicationController
 
     #保存処理
     if @photo.save
+      flash[:notice] = "Post Complete"
       redirect_to(root_path)
     else
       #失敗した場合、情報を保持したまま画像遷移させない

@@ -11,20 +11,20 @@
         <% end %>
         <%= form_tag("/#{@user.id}/update",{multipart: true}) do %>
           <!--ユーザー名-->
-          <p>User_name</p>
+          <p>User Name</p>
           <input name="name" value="<%= @user.name %>">
           <!--イメージ画像-->
           <p>Image</p>
-          <input name="image" type="file">
+          <input name="image_name" type="file">
           <!--プロフィール文-->
-          <p>content</p>
+          <p>Content</p>
           <textarea name="profile"><%= @user.profile %></textarea>
           <!--パスワード-->
           <p>Password</p>
           <input name="password" type="password" value="<%= @user.password %>">
           <p>Password(Confirm)</p>
           <input name="repassword" type="password">
-          <input type="submit" value="update">
+          <input type="submit" value="update" class="waves-effect waves-light btn">
         <% end %>
       </div>
     </div>

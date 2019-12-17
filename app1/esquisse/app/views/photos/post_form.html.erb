@@ -1,6 +1,6 @@
 <div class="main posts-new">
   <div class="container">
-    <h1 class="form-heading">Photo</h1>
+    <h3>Photo</h3>
       <div class="form">
         <div class="form-body">
           <% @photo.errors.full_messages.each do |message| %>
@@ -13,9 +13,10 @@
             <input type="file" name = "image_name">
             <p>Content</p>
             <textarea name="content"><%=@photo.content %></textarea>
-            <input type="submit" value="Post">
+            <input type="submit" value="Post" class="waves-effect waves-light btn">
           <% end %>
-          <%= button_to "Back", {controller: 'photos', action: 'index'}, {method: :get} %>
+          <br>
+          <%= button_to "Back", {controller: 'photos', action: 'index'}, {method: :get,class: "waves-effect waves-light btn"} %>
         </div>
       </div>
   </div>

@@ -3,24 +3,33 @@
     <%= search_form_for @q do |f| %>
       <%= f.label :name, "Keyword" %>
       <%= f.search_field :content_cont %>
-    <%= f.submit "Search" %>
+    <%= f.submit "Search" ,class: "waves-effect waves-light btn" %>
     <% end %>
     <hr>
     <% @ask.each do |photo|  %>
       <div class="posts-index-item">
-          <div class="img-box">
-          <!-- 写真を表示-->
-          <a href="/photos/<%= photo.id %>">
-            <img src="<%= "/post_images/#{photo.image_name}" %>" >
-          </a>
-        </div>
-          <!-- コメントを表示-->
-        <div class="photo-content">
-          <%= photo.content %>
-        </div>
-        <div class="favorite-user-count">
-          <!--いいね件数表示-->
-          (<%= photo.favorite_user.count %>)
+        <div class= "centering_parent">
+          <div class= "centering_item">
+            <div class="row">
+              <div class="col s12 m7">
+                <div class="card">
+                  <div class="card-image">
+                     <div class="img-box">
+                      <a href="/photos/<%= photo.id %>">
+                        <img src="<%= "/post_images/#{photo.image_name}" %>" >
+                      </a>
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <p><%= photo.content %> (<%= photo.favorite_user.count %>)</p>
+                  </div>
+                  <div class="card-action">
+                    <a href="/photos/<%= photo.id %>">This is a link</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     <%end %>

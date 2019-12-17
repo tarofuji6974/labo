@@ -1,25 +1,50 @@
-<h1>MyPage</h1>
+<h3>MyPage</h3>
 <% if user_signed_in? %>
+  <%= @user.name %>
+  <div class ="user_image">
+    <% if @user.image_name != nil %>
+      <img src = "<%= "/user_image/#{@user.image_name}" %>">
+    <% end %>
+  </div>
+  <div class="user_content">
+    <%= @user.profile %>
+  </div>
   <!--お気に入りページのリンク表示を予定-->
-  <%= link_to "Profile", "/#{current_user.id}/profile" %>
-  <%= link_to "Post", "#{current_user.id}/post" %>
-  <%= link_to "Photo", "/view" %>
-  <%= link_to "favorite", "#{current_user.id}//favorite" %>
-  <%= link_to "LogOut", destroy_user_session_path, :method => :delete %>
+   <ul class="collection">
+    <li class="collection-item"><%= link_to "Profile", "/#{current_user.id}/profile" %></li>
+    <li class="collection-item"><%= link_to "Post", "#{current_user.id}/post" %></li>
+    <li class="collection-item"><%= link_to "Photo", "/view" %></li>
+    <li class="collection-item"><%= link_to "favorite", "#{current_user.id}/favorite" %></li>
+    <li class="collection-item"><%= link_to "LogOut", destroy_user_session_path, :method => :delete %></li>
+  </ul>
   <hr>
-  <h2>MyPhoto</h2>
+  <h3>MyPhoto</h3>
   <% @user.photos.each do |photo| %>
-    <div class="img-box">
-      <a href="/photos/<%= photo.id %>">
-        <img src="<%= "/post_images/#{photo.image_name}" %>" >
-      </a>
+    <div class="posts-index-item">
+      <div class= "centering_parent">
+        <div class= "centering_item">
+          <div class="row">
+            <div class="col s12 m7">
+              <div class="card">
+                <div class="card-image">
+                   <div class="img-box">
+                    <a href="/photos/<%= photo.id %>">
+                      <img src="<%= "/post_images/#{photo.image_name}" %>" >
+                    </a>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <p><%= photo.content %> (<%= photo.favorite_user.count %>)</p>
+                </div>
+                <div class="card-action">
+                  <%= link_to("Delete","/#{photo.id}/destroy",{method:"post",data: { confirm: "削除しますか？" }}) %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="photo-content">
-      <%= photo.content %>
-    </div>
-    (<%= photo.favorite_user.count %>)
-    <%= link_to("Delete","/#{photo.id}/destroy",{method:"post",data: { confirm: "削除しますか？" }}) %>
-    <hr>
   <% end %>
 <% else %>
   <%= link_to "Sign up", new_user_registration_path %>
