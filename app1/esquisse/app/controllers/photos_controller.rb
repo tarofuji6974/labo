@@ -49,8 +49,14 @@ class PhotosController < ApplicationController
   #一覧画面の表示
   def view
     #ransack
+    #@q = User.includes(photos: :content).ransack(params[:q])
     @q = Photo.ransack(params[:q])
+
+    #作成日時の降順になるようソート
+    @q.sorts   = 'created_at desc' if @q.sorts.empty?
+
     @ask = @q.result(distinct: true)
+
 
     #ページング(作成日時の降順に表示させるよう修正の必要あり)
     @photos = Photo.page(params[:page]).per(PER)

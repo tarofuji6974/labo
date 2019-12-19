@@ -1,6 +1,6 @@
 <div class="main posts-index">
   <div class="container">
-    <%= search_form_for @q do |f| %>
+    <%= search_form_for @q,:url => {:action => :view} do |f| %>
       <%= f.label :name, "Keyword" %>
       <%= f.search_field :content_cont %>
     <%= f.submit "Search" ,class: "waves-effect waves-light btn" %>
@@ -21,7 +21,8 @@
                     </div>
                   </div>
                   <div class="card-content">
-                    <p><%= photo.content %> (<%= photo.favorite_user.count %>)</p>
+                    <p><%= photo.content %> 
+                      (<%= photo.favorite_user.count %>)</p>
                   </div>
                   <div class="card-action">
                     <a href="/photos/<%= photo.id %>">This is a link</a>

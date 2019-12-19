@@ -1,11 +1,12 @@
 <h3>MyPage</h3>
 <% if user_signed_in? %>
   <%= @user.name %>
-  <div class ="user_image">
+  <!--<div class ="user_image">
     <% if @user.image_name != nil %>
       <img src = "<%= "/user_image/#{@user.image_name}" %>">
     <% end %>
   </div>
+  -->
   <div class="user_content">
     <%= @user.profile %>
   </div>

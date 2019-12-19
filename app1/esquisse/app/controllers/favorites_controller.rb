@@ -14,7 +14,7 @@ class FavoritesController < ApplicationController
 
   def view
     @user = User.find(params[:id])
-    @favorites = Favorite.where(user_id: @user.id)
+    @favorites = Favorite.where(user_id: @user.id).order(created_at: :asc)
     #ページング(作成日時の降順に表示させるよう修正の必要あり)
     @fav = Favorite.page(params[:page]).per(PER)
   end
