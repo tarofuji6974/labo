@@ -8,6 +8,9 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorite_photo, through: :favorites, source: :photo
 
+  #nameを入力必須カラムにする
+  validates :name, presence: true
+
   def already_fav?(photo)
     self.favorites.exists?(photo_id: photo.id)
   end

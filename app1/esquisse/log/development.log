@@ -30235,3 +30235,2285 @@ These autoloaded constants have been unloaded.
 
 Please, check the "Autoloading and Reloading Constants" guide for solutions.
  (called from <main> at /Users/fujishimatarou/Ruby/learn-ruby-on-Rails/app1/esquisse/config/environment.rb:5)
+DEPRECATION WARNING: Initialization autoloaded the constants ActionText::ContentHelper and ActionText::TagHelper.
+
+Being able to do this is deprecated. Autoloading during initialization is going
+to be an error condition in future versions of Rails.
+
+Reloading does not reboot the application, and therefore code executed during
+initialization does not run again. So, if you reload ActionText::ContentHelper, for example,
+the expected changes won't be reflected in that stale Module object.
+
+These autoloaded constants have been unloaded.
+
+Please, check the "Autoloading and Reloading Constants" guide for solutions.
+ (called from <main> at /Users/fujishimatarou/Ruby/learn-ruby-on-Rails/app1/esquisse/config/environment.rb:5)
+Started GET "/" for ::1 at 2019-12-20 17:39:34 +0900
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.4ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/photos/index.html.erb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 8]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 9]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 11]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/index.html.erb:38
+  Rendered photos/index.html.erb within layouts/application (Duration: 47.8ms | Allocations: 20306)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 365ms (Views: 186.9ms | ActiveRecord: 12.0ms | Allocations: 45702)
+
+
+Started GET "/1/profile" for ::1 at 2019-12-20 17:39:38 +0900
+Processing by UsersController#profile as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `profile'
+  Rendering users/profile.html.erb within layouts/application
+  Rendered users/profile.html.erb within layouts/application (Duration: 17.8ms | Allocations: 411)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:18
+Completed 200 OK in 99ms (Views: 88.7ms | ActiveRecord: 0.5ms | Allocations: 9364)
+
+
+Started POST "/1/update" for ::1 at 2019-12-20 17:39:51 +0900
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"7UECBpb5RTUQJl1vYZjv7EHwUdNU7QbWOQvT71UD2kEr0hjTvRr/MesgbZnzIQXREJwZYJ24QFOvf7/Lul/F2g==", "name"=>"saburo345", "profile"=>"テスト用のアカウントですyo", "password"=>"[FILTERED]", "repassword"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:43:in `update'
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "encrypted_password" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["encrypted_password", "$2a$11$cCPCdQjjlz27DUc9s38CxuU7ROsOHrENg4HoZTP.2KQhk8onENVPi"], ["updated_at", "2019-12-20 08:39:51.344646"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:43:in `update'
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:43:in `update'
+Redirected to http://localhost:3000/
+Completed 302 Found in 143ms (ActiveRecord: 2.9ms | Allocations: 4326)
+
+
+Started GET "/" for ::1 at 2019-12-20 17:39:51 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 7ms (ActiveRecord: 0.2ms | Allocations: 1186)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-12-20 17:39:51 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.4ms | Allocations: 641)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 30.6ms | Allocations: 10503)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 49ms (Views: 46.9ms | ActiveRecord: 0.0ms | Allocations: 19065)
+
+
+Started POST "/users/sign_in" for ::1 at 2019-12-20 17:40:13 +0900
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"fOZA1x08f8BhRWhzreqTbzy41XAppxMyqixAoKcIwa/cCyWPKU068wD6v4NYipRyNO/8wYuC2w2QTxC6kA6K8Q==", "user"=>{"email"=>"aaa@icloud.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "aaa@icloud.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 166ms (ActiveRecord: 0.4ms | Allocations: 4559)
+
+
+Started GET "/" for ::1 at 2019-12-20 17:40:13 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/photos/index.html.erb:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 8]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 9]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 11]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/index.html.erb:38
+  Rendered photos/index.html.erb within layouts/application (Duration: 16.1ms | Allocations: 7571)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 30.8ms | ActiveRecord: 2.8ms | Allocations: 15622)
+
+
+Started GET "/users/edit" for ::1 at 2019-12-20 17:40:22 +0900
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.6ms | Allocations: 213)
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 8.7ms | Allocations: 2317)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 19.8ms | ActiveRecord: 0.3ms | Allocations: 11351)
+
+
+Started GET "/users/edit" for ::1 at 2019-12-20 17:47:04 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.8ms | Allocations: 205)
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2522)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 62ms (Views: 47.1ms | ActiveRecord: 0.2ms | Allocations: 19258)
+
+
+Started GET "/users/edit" for ::1 at 2019-12-20 17:48:38 +0900
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.8ms | Allocations: 205)
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 17.4ms | Allocations: 5338)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 34.9ms | ActiveRecord: 0.2ms | Allocations: 15367)
+
+
+Started PUT "/users" for ::1 at 2019-12-20 17:49:52 +0900
+Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"authenticity_token"=>"cznxiePbKbukecEIEA/B5KIt0SJftpFu4uMZNGkU/aTxDTtaHw0R4WlHKLnwmUlR1b7eKGZwKqGSH1D5SEvkKA==", "user"=>{"email"=>"aaa@icloud.com", "name"=>"saburo345", "profile"=>"テスト用のアカウントですyo", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :name, :profile[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "encrypted_password" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["encrypted_password", "$2a$11$Tx9ciOBr1sXJPCgvjfiROevOAtYbJx9P8tU4HWOsSG4t2ll1Xcktu"], ["updated_at", "2019-12-20 08:49:53.087339"], ["id", 1]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+[31mUnpermitted parameters: :name, :profile[0m
+[31mUnpermitted parameters: :name, :profile[0m
+[31mUnpermitted parameters: :name, :profile[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 307ms (ActiveRecord: 3.7ms | Allocations: 10170)
+
+
+Started GET "/" for ::1 at 2019-12-20 17:49:53 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.4ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/photos/index.html.erb:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 8]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 9]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 11]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/index.html.erb:38
+  Rendered photos/index.html.erb within layouts/application (Duration: 50.9ms | Allocations: 16857)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 77ms (Views: 67.5ms | ActiveRecord: 3.2ms | Allocations: 25664)
+
+
+Started GET "/users/edit" for ::1 at 2019-12-20 17:49:59 +0900
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1810)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 32.2ms | ActiveRecord: 0.2ms | Allocations: 10018)
+
+
+Started PUT "/users" for ::1 at 2019-12-20 17:50:12 +0900
+Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"authenticity_token"=>"QWQpuD/9sQoEJe9JUWmF1mUIc/4pzAe+V2vC340r57vypulsfoyoP6LKddOlCecRMPuhI6WqLvUtHLlZyqIKMA==", "user"=>{"email"=>"aaa@icloud.com", "name"=>"saburo3456", "profile"=>"テスト用のアカウントですyo", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :name, :profile[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "encrypted_password" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["encrypted_password", "$2a$11$AGJbkuWxt0Z0fFsABQig6ebG0dGHp.sDNkSdn3c5qWN3ZaKIe7n42"], ["updated_at", "2019-12-20 08:50:12.732451"], ["id", 1]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+[31mUnpermitted parameters: :name, :profile[0m
+[31mUnpermitted parameters: :name, :profile[0m
+[31mUnpermitted parameters: :name, :profile[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 304ms (ActiveRecord: 2.9ms | Allocations: 8267)
+
+
+Started GET "/" for ::1 at 2019-12-20 17:50:12 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/photos/index.html.erb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 8]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 9]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 11]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/index.html.erb:38
+  Rendered photos/index.html.erb within layouts/application (Duration: 30.8ms | Allocations: 7562)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 48ms (Views: 42.2ms | ActiveRecord: 2.0ms | Allocations: 15626)
+
+
+Started GET "/" for ::1 at 2019-12-20 17:51:30 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/photos/index.html.erb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 8]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 9]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 11]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/index.html.erb:38
+  Rendered photos/index.html.erb within layouts/application (Duration: 35.7ms | Allocations: 16825)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 64ms (Views: 43.9ms | ActiveRecord: 5.0ms | Allocations: 32813)
+
+
+Started GET "/users/edit" for ::1 at 2019-12-20 17:51:31 +0900
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 9.9ms | Allocations: 1862)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 39ms (Views: 34.9ms | ActiveRecord: 0.3ms | Allocations: 10324)
+
+
+Started GET "/users/edit" for ::1 at 2019-12-20 17:52:10 +0900
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.7ms | Allocations: 205)
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 5.6ms | Allocations: 2692)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 26.2ms | ActiveRecord: 0.3ms | Allocations: 12843)
+
+
+Started GET "/users/edit" for ::1 at 2019-12-20 17:52:27 +0900
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.7ms | Allocations: 205)
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 8.5ms | Allocations: 2696)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 41ms (Views: 30.7ms | ActiveRecord: 0.9ms | Allocations: 12833)
+
+
+Started PUT "/users" for ::1 at 2019-12-20 17:52:50 +0900
+Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"authenticity_token"=>"sAGlQ0juS0supl9l2THFCjnrKqKMO6Gggob8E1k0WgIyNW+QtDhzEeOYttQ5p02/TnglqLX9Gm/yerXeeGtDjg==", "user"=>{"email"=>"aaa@icloud.com", "name"=>"saburo3456", "profile"=>"テスト用のアカウントですyoyo", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "encrypted_password" = ?, "name" = ?, "profile" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["encrypted_password", "$2a$11$J1bo18xT71u6aF/cly.o7usCanXV8Vps.ZQ0IXwhQ6LBhW2ADS51G"], ["name", "saburo3456"], ["profile", "テスト用のアカウントですyoyo"], ["updated_at", "2019-12-20 08:52:51.044462"], ["id", 1]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 283ms (ActiveRecord: 2.8ms | Allocations: 10041)
+
+
+Started GET "/" for ::1 at 2019-12-20 17:52:51 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/photos/index.html.erb:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 8]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 9]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 11]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/index.html.erb:38
+  Rendered photos/index.html.erb within layouts/application (Duration: 16.5ms | Allocations: 8060)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 43ms (Views: 33.4ms | ActiveRecord: 3.0ms | Allocations: 16897)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2019-12-20 17:53:00 +0900
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"mGA0ZYNZw9eDA89LvpMGcKdIcg4mqDQTCM1xgQhu1RwaVP62f4/7jU49JvpeBY7F0Nt9BB9uj9x4MThMKTHMkA=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 0.2ms | Allocations: 2593)
+
+
+Started GET "/" for ::1 at 2019-12-20 17:53:00 +0900
+Processing by PhotosController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 411)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-12-20 17:53:00 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 558)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1966)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 18.3ms | ActiveRecord: 0.0ms | Allocations: 9814)
+
+
+Started GET "/users/sign_up" for ::1 at 2019-12-20 17:53:31 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 124)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1489)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 56ms (Views: 24.4ms | ActiveRecord: 0.0ms | Allocations: 8640)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-12-20 17:53:35 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 134)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1087)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 32.9ms | ActiveRecord: 0.0ms | Allocations: 8141)
+
+
+Started POST "/users/sign_in" for ::1 at 2019-12-20 17:53:39 +0900
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"GlrtURTDHKZszaN1fjPr2XuT6Mahcs9BVEypoXgDdVbCxyyPiv/eJmifvEy2mSo8GuenDcCEnnssW/ZZsYeaMA==", "user"=>{"email"=>"aaa@icloud.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "aaa@icloud.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 140ms (ActiveRecord: 0.3ms | Allocations: 4111)
+
+
+Started GET "/" for ::1 at 2019-12-20 17:53:40 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/photos/index.html.erb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 8]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 9]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 11]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/index.html.erb:38
+  Rendered photos/index.html.erb within layouts/application (Duration: 18.1ms | Allocations: 7568)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 31.2ms | ActiveRecord: 2.9ms | Allocations: 15630)
+
+
+Started GET "/photos/16" for ::1 at 2019-12-20 17:57:42 +0900
+Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:15:in `show'
+  Rendering photos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/photos/show.html.erb:1
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/show.html.erb:11
+  [1m[36mFavorite Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "favorites" WHERE "favorites"."user_id" = ? AND "favorites"."photo_id" = ? LIMIT ?[0m  [["user_id", 1], ["photo_id", 16], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `already_fav?'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/show.html.erb:19
+  Rendered photos/show.html.erb within layouts/application (Duration: 13.9ms | Allocations: 4020)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 44ms (Views: 31.5ms | ActiveRecord: 2.0ms | Allocations: 15734)
+
+
+Started GET "/photos/16" for ::1 at 2019-12-20 17:59:58 +0900
+Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:15:in `show'
+  Rendering photos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/photos/show.html.erb:2
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/show.html.erb:16
+  [1m[36mFavorite Exists? (3.0ms)[0m  [1m[34mSELECT 1 AS one FROM "favorites" WHERE "favorites"."user_id" = ? AND "favorites"."photo_id" = ? LIMIT ?[0m  [["user_id", 1], ["photo_id", 16], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `already_fav?'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/show.html.erb:24
+  Rendered photos/show.html.erb within layouts/application (Duration: 20.7ms | Allocations: 3570)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 76ms (Views: 60.0ms | ActiveRecord: 4.7ms | Allocations: 13657)
+
+
+Started GET "/photos/16" for ::1 at 2019-12-20 18:03:45 +0900
+Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:15:in `show'
+  Rendering photos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/photos/show.html.erb:2
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/show.html.erb:16
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/show.html.erb:27
+  Rendered photos/show.html.erb within layouts/application (Duration: 14.8ms | Allocations: 2798)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 90ms (Views: 76.3ms | ActiveRecord: 2.8ms | Allocations: 12877)
+
+
+Started GET "/" for ::1 at 2019-12-20 18:03:56 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.5ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/photos/index.html.erb:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 8]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 9]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 11]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/index.html.erb:38
+  Rendered photos/index.html.erb within layouts/application (Duration: 32.0ms | Allocations: 8065)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 55ms (Views: 45.1ms | ActiveRecord: 3.9ms | Allocations: 16255)
+
+
+Started GET "/1/post" for ::1 at 2019-12-20 18:04:16 +0900
+Processing by PhotosController#post_form as HTML
+  Parameters: {"id"=>"1"}
+  Rendering photos/post_form.html.erb within layouts/application
+  Rendered photos/post_form.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1047)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:18
+Completed 200 OK in 45ms (Views: 43.1ms | ActiveRecord: 0.3ms | Allocations: 8790)
+
+
+Started GET "/1/post" for ::1 at 2019-12-20 18:04:22 +0900
+Processing by PhotosController#post_form as HTML
+  Parameters: {"id"=>"1"}
+  Rendering photos/post_form.html.erb within layouts/application
+  Rendered photos/post_form.html.erb within layouts/application (Duration: 1.1ms | Allocations: 245)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:18
+Completed 200 OK in 26ms (Views: 24.0ms | ActiveRecord: 0.5ms | Allocations: 7842)
+
+
+Started GET "/1/post" for ::1 at 2019-12-20 18:04:23 +0900
+Processing by PhotosController#post_form as HTML
+  Parameters: {"id"=>"1"}
+  Rendering photos/post_form.html.erb within layouts/application
+  Rendered photos/post_form.html.erb within layouts/application (Duration: 1.1ms | Allocations: 245)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:18
+Completed 200 OK in 27ms (Views: 25.4ms | ActiveRecord: 0.4ms | Allocations: 7841)
+
+
+Started GET "/view" for ::1 at 2019-12-20 18:04:24 +0900
+Processing by PhotosController#view as HTML
+  Rendering photos/view.html.erb within layouts/application
+  [1m[36mPhoto Load (0.4ms)[0m  [1m[34mSELECT DISTINCT "photos".* FROM "photos" ORDER BY "photos"."created_at" DESC[0m
+  ↳ app/views/photos/view.html.erb:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 11]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 9]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 8]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos"[0m
+  ↳ app/views/photos/view.html.erb:38
+  Rendered photos/view.html.erb within layouts/application (Duration: 34.7ms | Allocations: 9472)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:18
+Completed 200 OK in 69ms (Views: 42.0ms | ActiveRecord: 4.5ms | Allocations: 19781)
+
+
+Started GET "/photos/16" for ::1 at 2019-12-20 18:04:29 +0900
+Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:15:in `show'
+  Rendering photos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/photos/show.html.erb:2
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/show.html.erb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/show.html.erb:27
+  Rendered photos/show.html.erb within layouts/application (Duration: 10.7ms | Allocations: 2343)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 22.9ms | ActiveRecord: 1.4ms | Allocations: 10974)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2019-12-20 18:04:35 +0900
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"kyhR1PdcQ4b6GbZ7W8n8/hCDjo1BUryDitoDlKPl1NMO6+JWjHtYNOjlYLUGapwF2RweWPPyqmiC6OGqI40psw=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 2142)
+
+
+Started GET "/" for ::1 at 2019-12-20 18:04:35 +0900
+Processing by PhotosController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms | Allocations: 394)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-12-20 18:04:35 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 545)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1952)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 24.5ms | ActiveRecord: 0.0ms | Allocations: 10269)
+
+
+Started GET "/users/sign_up" for ::1 at 2019-12-20 18:04:37 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.5ms | Allocations: 205)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 80)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 9.6ms | Allocations: 1765)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 36.1ms | ActiveRecord: 0.0ms | Allocations: 9531)
+
+
+Started POST "/users" for ::1 at 2019-12-20 18:04:44 +0900
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"y9WjM36YtJUAQZAmA+2p+QTM1pWLG7cVBAHoEf0CD4pRlj7NqTWhhlJqRM1/qyehMUwGe7G56z4/khVTx+wKlg==", "user"=>{"email"=>"bbb@icloud.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "bbb@icloud.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.5ms | Allocations: 222)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1298)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 171ms (Views: 18.1ms | ActiveRecord: 0.4ms | Allocations: 15191)
+
+
+Started POST "/users" for ::1 at 2019-12-20 18:05:07 +0900
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"SADtu3Ty8rlpRRiyNNr2Asno9VR/aawqe1D6+FVNaG8lImm6rLOL/cFir0DUhuzgCABC1QRfHWiA0QV0hrOJQw==", "user"=>{"email"=>"ddd@icloud.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ddd@icloud.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "ddd@icloud.com"], ["encrypted_password", "$2a$11$hlP857SkVvQ0ms/yLNw7o.wHYBxx0OqWggrG4QxQ0urrTDAfWSLvK"], ["created_at", "2019-12-20 09:05:07.244000"], ["updated_at", "2019-12-20 09:05:07.244000"]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 156ms (ActiveRecord: 4.1ms | Allocations: 6851)
+
+
+Started GET "/" for ::1 at 2019-12-20 18:05:07 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/photos/index.html.erb:23
+  Rendered photos/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 790)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 23.4ms | ActiveRecord: 1.3ms | Allocations: 8841)
+
+
+Started GET "/view" for ::1 at 2019-12-20 18:05:10 +0900
+Processing by PhotosController#view as HTML
+  Rendering photos/view.html.erb within layouts/application
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT DISTINCT "photos".* FROM "photos" ORDER BY "photos"."created_at" DESC[0m
+  ↳ app/views/photos/view.html.erb:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 11]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 9]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 8]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos"[0m
+  ↳ app/views/photos/view.html.erb:38
+  Rendered photos/view.html.erb within layouts/application (Duration: 40.2ms | Allocations: 8143)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:18
+Completed 200 OK in 65ms (Views: 58.2ms | ActiveRecord: 2.7ms | Allocations: 15904)
+
+
+Started GET "/photos/16" for ::1 at 2019-12-20 18:05:12 +0900
+Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPhoto Load (1.0ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:15:in `show'
+  Rendering photos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/photos/show.html.erb:2
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/show.html.erb:16
+  [1m[36mFavorite Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "favorites" WHERE "favorites"."user_id" = ? AND "favorites"."photo_id" = ? LIMIT ?[0m  [["user_id", 4], ["photo_id", 16], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `already_fav?'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/show.html.erb:27
+  Rendered photos/show.html.erb within layouts/application (Duration: 8.3ms | Allocations: 3198)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 89ms (Views: 23.4ms | ActiveRecord: 2.5ms | Allocations: 11834)
+
+
+Started POST "/photos/16/favorites" for ::1 at 2019-12-20 18:05:19 +0900
+Processing by FavoritesController#create as HTML
+  Parameters: {"authenticity_token"=>"AkFt68wO0SVmVTYP1U8pJsLpySL3vMJWc+qEAy9w+WwrkioFvNzk8SzW5Zi5PmXvbwL+u/smJnQyLhG0yx6gkg==", "photo_id"=>"16"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/favorites_controller.rb:5:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/favorites_controller.rb:5:in `create'
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/favorites_controller.rb:5:in `create'
+  [1m[36mFavorite Create (0.7ms)[0m  [1m[32mINSERT INTO "favorites" ("photo_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["photo_id", 16], ["user_id", 4], ["created_at", "2019-12-20 09:05:20.015126"], ["updated_at", "2019-12-20 09:05:20.015126"]]
+  ↳ app/controllers/favorites_controller.rb:5:in `create'
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/favorites_controller.rb:5:in `create'
+Redirected to http://localhost:3000/photos/16
+Completed 302 Found in 23ms (ActiveRecord: 3.9ms | Allocations: 5715)
+
+
+Started GET "/photos/16" for ::1 at 2019-12-20 18:05:20 +0900
+Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:15:in `show'
+  Rendering photos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/photos/show.html.erb:2
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/show.html.erb:16
+  [1m[36mFavorite Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "favorites" WHERE "favorites"."user_id" = ? AND "favorites"."photo_id" = ? LIMIT ?[0m  [["user_id", 4], ["photo_id", 16], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `already_fav?'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/show.html.erb:27
+  Rendered photos/show.html.erb within layouts/application (Duration: 14.8ms | Allocations: 5422)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 40ms (Views: 32.8ms | ActiveRecord: 1.4ms | Allocations: 15377)
+
+
+Started GET "/" for ::1 at 2019-12-20 18:05:32 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/photos/index.html.erb:23
+  Rendered photos/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 783)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 24.6ms | ActiveRecord: 0.7ms | Allocations: 8818)
+
+
+Started GET "/view" for ::1 at 2019-12-20 18:05:42 +0900
+Processing by PhotosController#view as HTML
+  Rendering photos/view.html.erb within layouts/application
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT DISTINCT "photos".* FROM "photos" ORDER BY "photos"."created_at" DESC[0m
+  ↳ app/views/photos/view.html.erb:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 11]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 9]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 8]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos"[0m
+  ↳ app/views/photos/view.html.erb:38
+  Rendered photos/view.html.erb within layouts/application (Duration: 33.7ms | Allocations: 8134)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:18
+Completed 200 OK in 49ms (Views: 43.6ms | ActiveRecord: 4.4ms | Allocations: 15896)
+
+
+Started GET "/photos/15" for ::1 at 2019-12-20 18:05:45 +0900
+Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:15:in `show'
+  Rendering photos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/photos/show.html.erb:2
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/show.html.erb:16
+  [1m[36mFavorite Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "favorites" WHERE "favorites"."user_id" = ? AND "favorites"."photo_id" = ? LIMIT ?[0m  [["user_id", 4], ["photo_id", 15], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `already_fav?'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/show.html.erb:27
+  Rendered photos/show.html.erb within layouts/application (Duration: 13.6ms | Allocations: 3195)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 29.7ms | ActiveRecord: 2.0ms | Allocations: 11828)
+
+
+Started POST "/photos/15/favorites" for ::1 at 2019-12-20 18:05:46 +0900
+Processing by FavoritesController#create as HTML
+  Parameters: {"authenticity_token"=>"uLFjMUDBB5kyoobK200wiDQ2lOt32pLy8skP7g3gL4zvNLsS0Z2kFlBawvvuQIRmauobNll45966350y6Ne0Fg==", "photo_id"=>"15"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/favorites_controller.rb:5:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/favorites_controller.rb:5:in `create'
+  [1m[36mPhoto Load (0.4ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/favorites_controller.rb:5:in `create'
+  [1m[36mFavorite Create (0.7ms)[0m  [1m[32mINSERT INTO "favorites" ("photo_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["photo_id", 15], ["user_id", 4], ["created_at", "2019-12-20 09:05:46.819991"], ["updated_at", "2019-12-20 09:05:46.819991"]]
+  ↳ app/controllers/favorites_controller.rb:5:in `create'
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/favorites_controller.rb:5:in `create'
+Redirected to http://localhost:3000/photos/15
+Completed 302 Found in 24ms (ActiveRecord: 3.1ms | Allocations: 4845)
+
+
+Started GET "/photos/15" for ::1 at 2019-12-20 18:05:46 +0900
+Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:15:in `show'
+  Rendering photos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/photos/show.html.erb:2
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/show.html.erb:16
+  [1m[36mFavorite Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "favorites" WHERE "favorites"."user_id" = ? AND "favorites"."photo_id" = ? LIMIT ?[0m  [["user_id", 4], ["photo_id", 15], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `already_fav?'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/show.html.erb:27
+  Rendered photos/show.html.erb within layouts/application (Duration: 13.9ms | Allocations: 3265)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 57ms (Views: 42.7ms | ActiveRecord: 2.1ms | Allocations: 11910)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2019-12-20 18:05:48 +0900
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"fHIaRETnSNdE5s6UUn/PY1GjHQyaSnhbDP7xxuKIyysRUJ5FnKYxk+zBeWayI9WBkEuqjeF8yRn3fw5KMXYqBw=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 16ms (ActiveRecord: 0.3ms | Allocations: 2128)
+
+
+Started GET "/" for ::1 at 2019-12-20 18:05:48 +0900
+Processing by PhotosController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms | Allocations: 398)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-12-20 18:05:48 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 134)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1091)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 33.4ms | ActiveRecord: 0.0ms | Allocations: 8156)
+
+
+Started POST "/users/sign_in" for ::1 at 2019-12-20 18:05:53 +0900
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"Ax8mzZicYXn2DPY9doAj8jVgfAX8BioK++uwQEo3+O2hs0b1vs3hBurQzt89qkK+QR4WgHK/H0IfOxnGrinzrQ==", "user"=>{"email"=>"aaa@icloud.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "aaa@icloud.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 144ms (ActiveRecord: 0.2ms | Allocations: 3123)
+
+
+Started GET "/" for ::1 at 2019-12-20 18:05:53 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/photos/index.html.erb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 8]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 9]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 11]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/index.html.erb:38
+  Rendered photos/index.html.erb within layouts/application (Duration: 15.2ms | Allocations: 7559)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 40ms (Views: 32.1ms | ActiveRecord: 2.1ms | Allocations: 15618)
+
+
+Started GET "/users/edit" for ::1 at 2019-12-20 18:05:55 +0900
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 14.4ms | Allocations: 2386)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 54ms (Views: 40.5ms | ActiveRecord: 0.3ms | Allocations: 10766)
+
+
+Started GET "/" for ::1 at 2019-12-20 18:05:56 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/photos/index.html.erb:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 8]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 9]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 11]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/index.html.erb:38
+  Rendered photos/index.html.erb within layouts/application (Duration: 61.0ms | Allocations: 7565)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 95ms (Views: 79.4ms | ActiveRecord: 5.7ms | Allocations: 15608)
+
+
+Started GET "/view" for ::1 at 2019-12-20 18:05:57 +0900
+Processing by PhotosController#view as HTML
+  Rendering photos/view.html.erb within layouts/application
+  [1m[36mPhoto Load (0.6ms)[0m  [1m[34mSELECT DISTINCT "photos".* FROM "photos" ORDER BY "photos"."created_at" DESC[0m
+  ↳ app/views/photos/view.html.erb:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 11]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 9]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 8]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos"[0m
+  ↳ app/views/photos/view.html.erb:38
+  Rendered photos/view.html.erb within layouts/application (Duration: 34.5ms | Allocations: 8140)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:18
+Completed 200 OK in 63ms (Views: 56.6ms | ActiveRecord: 4.9ms | Allocations: 15907)
+
+
+Started GET "/photos/10" for ::1 at 2019-12-20 18:06:05 +0900
+Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:15:in `show'
+  Rendering photos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/photos/show.html.erb:2
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/show.html.erb:16
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/show.html.erb:27
+  Rendered photos/show.html.erb within layouts/application (Duration: 12.9ms | Allocations: 2343)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 28.4ms | ActiveRecord: 1.5ms | Allocations: 10981)
+
+
+Started GET "/photos/16" for ::1 at 2019-12-20 18:06:13 +0900
+Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:15:in `show'
+  Rendering photos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/photos/show.html.erb:2
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/show.html.erb:16
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/show.html.erb:27
+  Rendered photos/show.html.erb within layouts/application (Duration: 9.7ms | Allocations: 2354)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 54ms (Views: 46.9ms | ActiveRecord: 1.8ms | Allocations: 10997)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2019-12-20 18:09:15 +0900
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"YRkTd0aFYBKhUeP5TrfchV1KaePcYjEXiFZJi6sZa4g3UgAzVoPjRZil5USa28PO+oVw+DNQvlsXAJGMlwycFQ=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 10ms (ActiveRecord: 0.5ms | Allocations: 2134)
+
+
+Started GET "/" for ::1 at 2019-12-20 18:09:15 +0900
+Processing by PhotosController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 401)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-12-20 18:09:15 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 134)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 8.5ms | Allocations: 1091)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 47ms (Views: 45.1ms | ActiveRecord: 0.0ms | Allocations: 8156)
+
+
+Started POST "/users/sign_in" for ::1 at 2019-12-20 18:09:21 +0900
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"GsKBZW0rSMW9OqXnd1ftK0uWDbCcH4JIx00isrzxc/zySln+qKhRdvck2OTI+DQ4jL/TvYueBWQSyl9Cd/N8LA==", "user"=>{"email"=>"ddd@icloud.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ddd@icloud.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 144ms (ActiveRecord: 0.3ms | Allocations: 2667)
+
+
+Started GET "/" for ::1 at 2019-12-20 18:09:21 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/photos/index.html.erb:23
+  Rendered photos/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 783)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 11.6ms | ActiveRecord: 1.6ms | Allocations: 8826)
+
+
+Started GET "/4/post" for ::1 at 2019-12-20 18:09:23 +0900
+Processing by PhotosController#post_form as HTML
+  Parameters: {"id"=>"4"}
+  Rendering photos/post_form.html.erb within layouts/application
+  Rendered photos/post_form.html.erb within layouts/application (Duration: 1.7ms | Allocations: 244)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:18
+Completed 200 OK in 25ms (Views: 23.6ms | ActiveRecord: 0.3ms | Allocations: 7835)
+
+
+Started POST "/create" for ::1 at 2019-12-20 18:09:37 +0900
+Processing by PhotosController#create as HTML
+  Parameters: {"authenticity_token"=>"G6jy8ljIbVnmjcVYJYzUJvdzstTniMk9dOujtUgIyjLLug5xGUropnIIHwNGRMgtZ8jM7kUyeDosZyLNs5+kWg==", "image_name"=>#<ActionDispatch::Http::UploadedFile:0x00007f9e2ed33078 @tempfile=#<Tempfile:/var/folders/n8/19zzl73n00314pg99fjgb8f80000gn/T/RackMultipart20191220-58245-1akz81b.png>, @original_filename="ダブルゼータ.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"image_name\"; filename=\"\xE3\x82\xBF\xE3\x82\x99\xE3\x83\x95\xE3\x82\x99\xE3\x83\xAB\xE3\x82\xBB\xE3\x82\x99\xE3\x83\xBC\xE3\x82\xBF.png\"\r\nContent-Type: image/png\r\n">, "content"=>"gundam!"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/photos_controller.rb:36:in `create'
+  [1m[36mPhoto Create (0.6ms)[0m  [1m[32mINSERT INTO "photos" ("content", "user_id", "created_at", "updated_at", "image_name") VALUES (?, ?, ?, ?, ?)[0m  [["content", "gundam!"], ["user_id", 4], ["created_at", "2019-12-20 09:09:37.847866"], ["updated_at", "2019-12-20 09:09:37.847866"], ["image_name", "2019122018937.jpg"]]
+  ↳ app/controllers/photos_controller.rb:36:in `create'
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/photos_controller.rb:36:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 15ms (ActiveRecord: 2.9ms | Allocations: 4005)
+
+
+Started GET "/" for ::1 at 2019-12-20 18:09:37 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/photos/index.html.erb:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 17]]
+  ↳ app/views/photos/index.html.erb:38
+  Rendered photos/index.html.erb within layouts/application (Duration: 10.1ms | Allocations: 1752)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 30.5ms | ActiveRecord: 0.9ms | Allocations: 9797)
+
+
+Started GET "/photos/17" for ::1 at 2019-12-20 18:09:43 +0900
+Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:15:in `show'
+  Rendering photos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/photos/show.html.erb:2
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 17]]
+  ↳ app/views/photos/show.html.erb:16
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 17]]
+  ↳ app/views/photos/show.html.erb:27
+  Rendered photos/show.html.erb within layouts/application (Duration: 10.4ms | Allocations: 2340)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 43ms (Views: 35.8ms | ActiveRecord: 1.1ms | Allocations: 10973)
+
+
+Started GET "/" for ::1 at 2019-12-20 18:09:49 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/photos/index.html.erb:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 17]]
+  ↳ app/views/photos/index.html.erb:38
+  Rendered photos/index.html.erb within layouts/application (Duration: 7.7ms | Allocations: 1751)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 50ms (Views: 37.6ms | ActiveRecord: 1.2ms | Allocations: 9782)
+
+
+Started GET "/users/edit" for ::1 at 2019-12-20 18:09:52 +0900
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 9.1ms | Allocations: 1805)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 25.6ms | ActiveRecord: 0.2ms | Allocations: 10037)
+
+
+Started PUT "/users" for ::1 at 2019-12-20 18:10:15 +0900
+Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"authenticity_token"=>"jxLRHsT+XftVl8LzW7OeCr6RWuy7w5M8rF2hzNp+XWJTvcpFq8wkTjAFpBA/c7N202hu8yZ2KqeJdoaDc7ZAXg==", "user"=>{"email"=>"ddd@icloud.com", "name"=>"taro", "profile"=>"なんでもないよ", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "encrypted_password" = ?, "name" = ?, "profile" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["encrypted_password", "$2a$11$2tJuHeaZE/Dtg/YSvpoHyuQ8DJbWv6R/Xmp/Z93RPbEL9359Iawxq"], ["name", "taro"], ["profile", "なんでもないよ"], ["updated_at", "2019-12-20 09:10:15.974559"], ["id", 4]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 270ms (ActiveRecord: 2.5ms | Allocations: 9627)
+
+
+Started GET "/" for ::1 at 2019-12-20 18:10:15 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/photos/index.html.erb:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 17]]
+  ↳ app/views/photos/index.html.erb:38
+  Rendered photos/index.html.erb within layouts/application (Duration: 7.5ms | Allocations: 1756)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 19.9ms | ActiveRecord: 0.9ms | Allocations: 9809)
+
+
+Started GET "/users/edit" for ::1 at 2019-12-20 18:10:20 +0900
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 7.6ms | Allocations: 1813)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 25.9ms | ActiveRecord: 0.2ms | Allocations: 10039)
+
+
+Started GET "/view" for ::1 at 2019-12-20 18:10:21 +0900
+Processing by PhotosController#view as HTML
+  Rendering photos/view.html.erb within layouts/application
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT DISTINCT "photos".* FROM "photos" ORDER BY "photos"."created_at" DESC[0m
+  ↳ app/views/photos/view.html.erb:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 17]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 11]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 9]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 8]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos"[0m
+  ↳ app/views/photos/view.html.erb:38
+  Rendered photos/view.html.erb within layouts/application (Duration: 57.5ms | Allocations: 9057)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:18
+Completed 200 OK in 109ms (Views: 98.5ms | ActiveRecord: 5.5ms | Allocations: 16825)
+
+
+Started GET "/photos/16" for ::1 at 2019-12-20 18:10:25 +0900
+Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.4ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:15:in `show'
+  Rendering photos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/photos/show.html.erb:2
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/show.html.erb:16
+  [1m[36mFavorite Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "favorites" WHERE "favorites"."user_id" = ? AND "favorites"."photo_id" = ? LIMIT ?[0m  [["user_id", 4], ["photo_id", 16], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `already_fav?'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/show.html.erb:27
+  Rendered photos/show.html.erb within layouts/application (Duration: 13.1ms | Allocations: 3271)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 44ms (Views: 34.7ms | ActiveRecord: 2.8ms | Allocations: 11907)
+
+
+Started DELETE "/photos/16/favorites/16" for ::1 at 2019-12-20 18:10:38 +0900
+Processing by FavoritesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Hco+jxFLb+NxE5reB0p++P0XNOjRj2RC6nT28OFkeaGnzoKu+vZ47g7XWPwhMlitzfZ0U1b54uR194fs5lbMzg==", "photo_id"=>"16", "id"=>"16"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/favorites_controller.rb:10:in `destroy'
+  [1m[36mFavorite Load (0.3ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."photo_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["photo_id", 16], ["user_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/favorites_controller.rb:10:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/favorites_controller.rb:11:in `destroy'
+  [1m[36mFavorite Destroy (1.0ms)[0m  [1m[31mDELETE FROM "favorites" WHERE "favorites"."id" = ?[0m  [["id", 25]]
+  ↳ app/controllers/favorites_controller.rb:11:in `destroy'
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/favorites_controller.rb:11:in `destroy'
+Redirected to http://localhost:3000/photos/16
+Completed 302 Found in 15ms (ActiveRecord: 3.8ms | Allocations: 3510)
+
+
+Started GET "/photos/16" for ::1 at 2019-12-20 18:10:38 +0900
+Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:15:in `show'
+  Rendering photos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/photos/show.html.erb:2
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/show.html.erb:16
+  [1m[36mFavorite Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "favorites" WHERE "favorites"."user_id" = ? AND "favorites"."photo_id" = ? LIMIT ?[0m  [["user_id", 4], ["photo_id", 16], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `already_fav?'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/show.html.erb:27
+  Rendered photos/show.html.erb within layouts/application (Duration: 5.9ms | Allocations: 3196)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 16.3ms | ActiveRecord: 1.1ms | Allocations: 11830)
+
+
+Started POST "/photos/16/favorites" for ::1 at 2019-12-20 18:10:41 +0900
+Processing by FavoritesController#create as HTML
+  Parameters: {"authenticity_token"=>"B8eH5oPdc+6c7HJE7YD4XkRiluVP6tongplo245XGfn/95MaPHU721H/GeyAcA9GH3HEFkgQ2iOkQT8bxIyIng==", "photo_id"=>"16"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/favorites_controller.rb:5:in `create'
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/favorites_controller.rb:5:in `create'
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/favorites_controller.rb:5:in `create'
+  [1m[36mFavorite Create (0.9ms)[0m  [1m[32mINSERT INTO "favorites" ("photo_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["photo_id", 16], ["user_id", 4], ["created_at", "2019-12-20 09:10:41.647940"], ["updated_at", "2019-12-20 09:10:41.647940"]]
+  ↳ app/controllers/favorites_controller.rb:5:in `create'
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/favorites_controller.rb:5:in `create'
+Redirected to http://localhost:3000/photos/16
+Completed 302 Found in 18ms (ActiveRecord: 2.9ms | Allocations: 4822)
+
+
+Started GET "/photos/16" for ::1 at 2019-12-20 18:10:41 +0900
+Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:15:in `show'
+  Rendering photos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/photos/show.html.erb:2
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/show.html.erb:16
+  [1m[36mFavorite Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "favorites" WHERE "favorites"."user_id" = ? AND "favorites"."photo_id" = ? LIMIT ?[0m  [["user_id", 4], ["photo_id", 16], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `already_fav?'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/show.html.erb:27
+  Rendered photos/show.html.erb within layouts/application (Duration: 21.8ms | Allocations: 3273)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 40ms (Views: 32.8ms | ActiveRecord: 1.6ms | Allocations: 11908)
+
+
+Started GET "/" for ::1 at 2019-12-20 18:10:47 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/photos/index.html.erb:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 17]]
+  ↳ app/views/photos/index.html.erb:38
+  Rendered photos/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1756)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 31.0ms | ActiveRecord: 0.8ms | Allocations: 9791)
+
+
+Started GET "/view" for ::1 at 2019-12-20 18:10:54 +0900
+Processing by PhotosController#view as HTML
+  Rendering photos/view.html.erb within layouts/application
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT DISTINCT "photos".* FROM "photos" ORDER BY "photos"."created_at" DESC[0m
+  ↳ app/views/photos/view.html.erb:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 17]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 11]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 9]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 8]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos"[0m
+  ↳ app/views/photos/view.html.erb:38
+  Rendered photos/view.html.erb within layouts/application (Duration: 36.2ms | Allocations: 9057)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:18
+Completed 200 OK in 58ms (Views: 52.5ms | ActiveRecord: 4.7ms | Allocations: 16817)
+
+
+Started GET "/photos/7" for ::1 at 2019-12-20 18:10:59 +0900
+Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:15:in `show'
+  Rendering photos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/photos/show.html.erb:2
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/show.html.erb:16
+  [1m[36mFavorite Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "favorites" WHERE "favorites"."user_id" = ? AND "favorites"."photo_id" = ? LIMIT ?[0m  [["user_id", 4], ["photo_id", 7], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `already_fav?'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/show.html.erb:27
+  Rendered photos/show.html.erb within layouts/application (Duration: 7.9ms | Allocations: 3213)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 28.8ms | ActiveRecord: 1.5ms | Allocations: 11849)
+
+
+Started GET "/photos" for ::1 at 2019-12-20 18:11:26 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/photos/index.html.erb:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 17]]
+  ↳ app/views/photos/index.html.erb:38
+  Rendered photos/index.html.erb within layouts/application (Duration: 6.5ms | Allocations: 1755)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 27.0ms | ActiveRecord: 1.1ms | Allocations: 9796)
+
+
+Started GET "/users/edit" for ::1 at 2019-12-20 18:12:46 +0900
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.0ms | Allocations: 205)
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 9.5ms | Allocations: 2700)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 84ms (Views: 76.3ms | ActiveRecord: 0.7ms | Allocations: 12845)
+
+
+Started GET "/" for ::1 at 2019-12-20 18:12:48 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (1.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/photos/index.html.erb:23
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 17]]
+  ↳ app/views/photos/index.html.erb:38
+  Rendered photos/index.html.erb within layouts/application (Duration: 21.1ms | Allocations: 2254)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 74ms (Views: 59.1ms | ActiveRecord: 3.3ms | Allocations: 11069)
+
+
+Started GET "/view" for ::1 at 2019-12-20 18:12:50 +0900
+Processing by PhotosController#view as HTML
+  Rendering photos/view.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT DISTINCT "photos".* FROM "photos" ORDER BY "photos"."created_at" DESC[0m
+  ↳ app/views/photos/view.html.erb:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 17]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 11]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 9]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 8]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos"[0m
+  ↳ app/views/photos/view.html.erb:38
+  Rendered photos/view.html.erb within layouts/application (Duration: 79.1ms | Allocations: 10119)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:18
+Completed 200 OK in 102ms (Views: 91.7ms | ActiveRecord: 4.7ms | Allocations: 18032)
+
+
+Started GET "/photos/17" for ::1 at 2019-12-20 18:12:51 +0900
+Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:15:in `show'
+  Rendering photos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/photos/show.html.erb:2
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 17]]
+  ↳ app/views/photos/show.html.erb:16
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 17]]
+  ↳ app/views/photos/show.html.erb:27
+  Rendered photos/show.html.erb within layouts/application (Duration: 11.9ms | Allocations: 2799)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 22.5ms | ActiveRecord: 1.2ms | Allocations: 11579)
+
+
+Started GET "/photos" for ::1 at 2019-12-20 18:12:55 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/photos/index.html.erb:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 17]]
+  ↳ app/views/photos/index.html.erb:38
+  Rendered photos/index.html.erb within layouts/application (Duration: 8.2ms | Allocations: 1756)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 30.6ms | ActiveRecord: 0.9ms | Allocations: 9793)
+
+
+Started GET "/view" for ::1 at 2019-12-20 18:12:57 +0900
+Processing by PhotosController#view as HTML
+  Rendering photos/view.html.erb within layouts/application
+  [1m[36mPhoto Load (0.8ms)[0m  [1m[34mSELECT DISTINCT "photos".* FROM "photos" ORDER BY "photos"."created_at" DESC[0m
+  ↳ app/views/photos/view.html.erb:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 17]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 11]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 9]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 8]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (5.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos"[0m
+  ↳ app/views/photos/view.html.erb:38
+  Rendered photos/view.html.erb within layouts/application (Duration: 73.6ms | Allocations: 9063)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:18
+Completed 200 OK in 118ms (Views: 102.9ms | ActiveRecord: 13.9ms | Allocations: 16823)
+
+
+Started GET "/photos/16" for ::1 at 2019-12-20 18:12:59 +0900
+Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:15:in `show'
+  Rendering photos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/photos/show.html.erb:2
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/show.html.erb:16
+  [1m[36mFavorite Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "favorites" WHERE "favorites"."user_id" = ? AND "favorites"."photo_id" = ? LIMIT ?[0m  [["user_id", 4], ["photo_id", 16], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `already_fav?'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/show.html.erb:27
+  Rendered photos/show.html.erb within layouts/application (Duration: 21.0ms | Allocations: 3278)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 44ms (Views: 34.7ms | ActiveRecord: 2.3ms | Allocations: 11923)
+
+
+Started DELETE "/photos/16/favorites/16" for ::1 at 2019-12-20 18:13:02 +0900
+Processing by FavoritesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"z6ie5WKU7dshm3tlItWfSXTt2UMNglGTU3Xsb1ECrjV1rCLEiSn61l5fuUcErbkcRAyZ+Ir01zXM9p1zVjAbWg==", "photo_id"=>"16", "id"=>"16"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/favorites_controller.rb:10:in `destroy'
+  [1m[36mFavorite Load (0.3ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."photo_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["photo_id", 16], ["user_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/favorites_controller.rb:10:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/favorites_controller.rb:11:in `destroy'
+  [1m[36mFavorite Destroy (0.8ms)[0m  [1m[31mDELETE FROM "favorites" WHERE "favorites"."id" = ?[0m  [["id", 27]]
+  ↳ app/controllers/favorites_controller.rb:11:in `destroy'
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/favorites_controller.rb:11:in `destroy'
+Redirected to http://localhost:3000/photos/16
+Completed 302 Found in 15ms (ActiveRecord: 3.3ms | Allocations: 3359)
+
+
+Started GET "/photos/16" for ::1 at 2019-12-20 18:13:02 +0900
+Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:15:in `show'
+  Rendering photos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/photos/show.html.erb:2
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/show.html.erb:16
+  [1m[36mFavorite Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "favorites" WHERE "favorites"."user_id" = ? AND "favorites"."photo_id" = ? LIMIT ?[0m  [["user_id", 4], ["photo_id", 16], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `already_fav?'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/show.html.erb:27
+  Rendered photos/show.html.erb within layouts/application (Duration: 6.3ms | Allocations: 3203)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 19.6ms | ActiveRecord: 1.3ms | Allocations: 11839)
+
+
+Started POST "/photos/16/favorites" for ::1 at 2019-12-20 18:13:02 +0900
+Processing by FavoritesController#create as HTML
+  Parameters: {"authenticity_token"=>"rmQKOfLFO4kUhtBrVWGFzekm4MvJOj+ur/JppjR3AqtWVB7FTW1zvNmVu8M4kXLVsjWyOM7AP6qJKj5mfqyTzA==", "photo_id"=>"16"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/favorites_controller.rb:5:in `create'
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/favorites_controller.rb:5:in `create'
+  [1m[36mPhoto Load (0.5ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/favorites_controller.rb:5:in `create'
+  [1m[36mFavorite Create (0.5ms)[0m  [1m[32mINSERT INTO "favorites" ("photo_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["photo_id", 16], ["user_id", 4], ["created_at", "2019-12-20 09:13:02.942863"], ["updated_at", "2019-12-20 09:13:02.942863"]]
+  ↳ app/controllers/favorites_controller.rb:5:in `create'
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/favorites_controller.rb:5:in `create'
+Redirected to http://localhost:3000/photos/16
+Completed 302 Found in 21ms (ActiveRecord: 3.1ms | Allocations: 4823)
+
+
+Started GET "/photos/16" for ::1 at 2019-12-20 18:13:02 +0900
+Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:15:in `show'
+  Rendering photos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/photos/show.html.erb:2
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/show.html.erb:16
+  [1m[36mFavorite Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "favorites" WHERE "favorites"."user_id" = ? AND "favorites"."photo_id" = ? LIMIT ?[0m  [["user_id", 4], ["photo_id", 16], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `already_fav?'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/show.html.erb:27
+  Rendered photos/show.html.erb within layouts/application (Duration: 27.6ms | Allocations: 3280)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 60ms (Views: 48.6ms | ActiveRecord: 1.5ms | Allocations: 15398)
+
+
+Started GET "/photos" for ::1 at 2019-12-20 18:13:24 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/photos/index.html.erb:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 17]]
+  ↳ app/views/photos/index.html.erb:38
+  Rendered photos/index.html.erb within layouts/application (Duration: 8.8ms | Allocations: 1755)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 29.9ms | ActiveRecord: 1.2ms | Allocations: 9789)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2019-12-20 18:16:34 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"MQbxG2MKCTGPHYhEfTVXcWBvTh4VPg6JpnlaLbABP/7JNuXn3KJBBEIO4+wQxaBpO3wc7RLEDo2AoQ3t+tqumQ=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 17ms (ActiveRecord: 1.5ms | Allocations: 9487)
+
+
+Started GET "/" for ::1 at 2019-12-20 18:16:34 +0900
+Processing by PhotosController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 476)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-12-20 18:16:34 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.7ms | Allocations: 558)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 2018)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 24.0ms | ActiveRecord: 0.0ms | Allocations: 11012)
+
+
+Started GET "/users/sign_up" for ::1 at 2019-12-20 18:16:36 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 5.1ms | Allocations: 205)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 91)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 15.2ms | Allocations: 2013)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 79ms (Views: 75.1ms | ActiveRecord: 0.0ms | Allocations: 9852)
+
+
+Started POST "/users" for ::1 at 2019-12-20 18:16:49 +0900
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"c67OYTg+9PakHwH8U+4TCSKStfALTuEuzG4Ft+xIlGsNljEiU1//IBGUp+aqJWI3QLjhaN4mF6HdEQjGtIS3vw==", "user"=>{"name"=>"jiro", "email"=>"ccc@icloud.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ccc@icloud.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.7ms | Allocations: 210)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1488)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 185ms (Views: 22.7ms | ActiveRecord: 0.7ms | Allocations: 15514)
+
+
+Started POST "/users" for ::1 at 2019-12-20 18:17:01 +0900
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"8BTsPRzIZgkp1/zy4Jpi0JLd0s2JXXuhBZAAGuAQo9wV4meEwsQlVEvlbZZYkJ+dYRfimpI6Ic1cTcde5866xQ==", "user"=>{"name"=>"jiro", "email"=>"eee@icloud.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "eee@icloud.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?, ?)[0m  [["email", "eee@icloud.com"], ["encrypted_password", "$2a$11$UeIUYE5OMw7FrNGdwGCmPO9Msuj3HEd1gymNURmIC2a81.1V/BZn6"], ["created_at", "2019-12-20 09:17:01.668920"], ["updated_at", "2019-12-20 09:17:01.668920"], ["name", "jiro"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 147ms (ActiveRecord: 3.8ms | Allocations: 6852)
+
+
+Started GET "/" for ::1 at 2019-12-20 18:17:01 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.4ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/photos/index.html.erb:23
+  Rendered photos/index.html.erb within layouts/application (Duration: 12.2ms | Allocations: 3792)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 30.6ms | ActiveRecord: 1.6ms | Allocations: 12656)
+
+
+Started GET "/view" for ::1 at 2019-12-20 18:17:04 +0900
+Processing by PhotosController#view as HTML
+  Rendering photos/view.html.erb within layouts/application
+  [1m[36mPhoto Load (0.4ms)[0m  [1m[34mSELECT DISTINCT "photos".* FROM "photos" ORDER BY "photos"."created_at" DESC[0m
+  ↳ app/views/photos/view.html.erb:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 17]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 11]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 9]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 8]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos"[0m
+  ↳ app/views/photos/view.html.erb:38
+  Rendered photos/view.html.erb within layouts/application (Duration: 49.1ms | Allocations: 17525)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:18
+Completed 200 OK in 65ms (Views: 58.7ms | ActiveRecord: 3.8ms | Allocations: 25393)
+
+
+Started GET "/photos/17" for ::1 at 2019-12-20 18:17:05 +0900
+Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.8ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:15:in `show'
+  Rendering photos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/photos/show.html.erb:2
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 17]]
+  ↳ app/views/photos/show.html.erb:16
+  [1m[36mFavorite Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "favorites" WHERE "favorites"."user_id" = ? AND "favorites"."photo_id" = ? LIMIT ?[0m  [["user_id", 5], ["photo_id", 17], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `already_fav?'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 17]]
+  ↳ app/views/photos/show.html.erb:27
+  Rendered photos/show.html.erb within layouts/application (Duration: 15.1ms | Allocations: 4184)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 91ms (Views: 65.1ms | ActiveRecord: 4.1ms | Allocations: 15841)
+
+
+Started POST "/photos/17/favorites" for ::1 at 2019-12-20 18:17:07 +0900
+Processing by FavoritesController#create as HTML
+  Parameters: {"authenticity_token"=>"Pi9E/JLX9Z6HAJ2W9lEceFGCB4YpTavcPpH35FMC0FLupe4IoY0BRtfrqJiBPhn5s3AL08Iw2mT/DuXxjOyUeA==", "photo_id"=>"17"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/favorites_controller.rb:5:in `create'
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/favorites_controller.rb:5:in `create'
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/favorites_controller.rb:5:in `create'
+  [1m[36mFavorite Create (1.0ms)[0m  [1m[32mINSERT INTO "favorites" ("photo_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["photo_id", 17], ["user_id", 5], ["created_at", "2019-12-20 09:17:07.238717"], ["updated_at", "2019-12-20 09:17:07.238717"]]
+  ↳ app/controllers/favorites_controller.rb:5:in `create'
+  [1m[35m (4.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/favorites_controller.rb:5:in `create'
+Redirected to http://localhost:3000/photos/17
+Completed 302 Found in 33ms (ActiveRecord: 7.5ms | Allocations: 5702)
+
+
+Started GET "/photos/17" for ::1 at 2019-12-20 18:17:07 +0900
+Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:15:in `show'
+  Rendering photos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/photos/show.html.erb:2
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 17]]
+  ↳ app/views/photos/show.html.erb:16
+  [1m[36mFavorite Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "favorites" WHERE "favorites"."user_id" = ? AND "favorites"."photo_id" = ? LIMIT ?[0m  [["user_id", 5], ["photo_id", 17], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `already_fav?'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 17]]
+  ↳ app/views/photos/show.html.erb:27
+  Rendered photos/show.html.erb within layouts/application (Duration: 12.4ms | Allocations: 3279)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 43ms (Views: 33.9ms | ActiveRecord: 1.9ms | Allocations: 11915)
+
+
+Started GET "/" for ::1 at 2019-12-20 18:17:18 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/photos/index.html.erb:23
+  Rendered photos/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 786)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 25.1ms | ActiveRecord: 0.6ms | Allocations: 8820)
+
+
+Started GET "/users/edit" for ::1 at 2019-12-20 18:17:19 +0900
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.3ms | Allocations: 15)
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 13.8ms | Allocations: 2370)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 37.7ms | ActiveRecord: 0.1ms | Allocations: 10753)
+
+
+Started GET "/" for ::1 at 2019-12-20 18:17:22 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/photos/index.html.erb:23
+  Rendered photos/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 792)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 28.1ms | ActiveRecord: 1.7ms | Allocations: 8828)
+
+
+Started GET "/" for ::1 at 2019-12-20 18:17:22 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.5ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/photos/index.html.erb:23
+  Rendered photos/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 785)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 15.5ms | ActiveRecord: 1.3ms | Allocations: 8813)
+
+
+Started GET "/5/favorite" for ::1 at 2019-12-20 18:17:24 +0900
+Processing by FavoritesController#view as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/favorites_controller.rb:16:in `view'
+  Rendering favorites/view.html.erb within layouts/application
+  [1m[36mFavorite Load (0.3ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = ? ORDER BY "favorites"."created_at" ASC[0m  [["user_id", 5]]
+  ↳ app/views/favorites/view.html.erb:5
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/views/favorites/view.html.erb:6
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 17]]
+  ↳ app/views/favorites/view.html.erb:20
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites"[0m
+  ↳ app/views/favorites/view.html.erb:32
+  Rendered favorites/view.html.erb within layouts/application (Duration: 22.8ms | Allocations: 3266)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:18
+Completed 200 OK in 62ms (Views: 56.7ms | ActiveRecord: 1.8ms | Allocations: 12323)
+
+
+Started GET "/" for ::1 at 2019-12-20 18:17:28 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/photos/index.html.erb:23
+  Rendered photos/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 792)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 63ms (Views: 56.1ms | ActiveRecord: 0.7ms | Allocations: 8830)
+
+
+Started GET "/users/edit" for ::1 at 2019-12-20 18:17:35 +0900
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 8.9ms | Allocations: 1820)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 29.3ms | ActiveRecord: 0.2ms | Allocations: 10055)
+
+
+DEPRECATION WARNING: Initialization autoloaded the constants ActionText::ContentHelper and ActionText::TagHelper.
+
+Being able to do this is deprecated. Autoloading during initialization is going
+to be an error condition in future versions of Rails.
+
+Reloading does not reboot the application, and therefore code executed during
+initialization does not run again. So, if you reload ActionText::ContentHelper, for example,
+the expected changes won't be reflected in that stale Module object.
+
+These autoloaded constants have been unloaded.
+
+Please, check the "Autoloading and Reloading Constants" guide for solutions.
+ (called from <main> at /Users/fujishimatarou/Ruby/learn-ruby-on-Rails/app1/esquisse/config/environment.rb:5)
+Started DELETE "/users/sign_out" for ::1 at 2019-12-20 18:18:53 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"OPrHaafPVG5lPfqXc8PmC4lNojlBzLKrL46i1L0+nardDEzQecMXMwcPa/PLyRtGeoeSblqr6Md2U2WQuuCEsw=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 64ms (ActiveRecord: 1.8ms | Allocations: 12924)
+
+
+Started GET "/" for ::1 at 2019-12-20 18:18:54 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PhotosController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms | Allocations: 1141)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-12-20 18:18:54 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 147)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.6ms | Allocations: 1158)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 48ms (Views: 31.0ms | ActiveRecord: 1.2ms | Allocations: 15388)
+
+
+Started POST "/users/sign_in" for ::1 at 2019-12-20 18:19:00 +0900
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"Tc5OMp6qKnwsqZQJ66wGsfrBveiXMou3Kkd3T3gyX7At+OgdDssDt+uQWCzYy/sQnd03oiTy5hblXsQARGNu2A==", "user"=>{"email"=>"aaa@icloud.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "aaa@icloud.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 144ms (ActiveRecord: 0.3ms | Allocations: 3280)
+
+
+Started GET "/" for ::1 at 2019-12-20 18:19:00 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/photos/index.html.erb:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 8]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 9]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 11]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/index.html.erb:38
+  Rendered photos/index.html.erb within layouts/application (Duration: 45.6ms | Allocations: 16865)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 68ms (Views: 60.2ms | ActiveRecord: 4.6ms | Allocations: 25143)
+
+
+Started GET "/view" for ::1 at 2019-12-20 18:19:05 +0900
+Processing by PhotosController#view as HTML
+  Rendering photos/view.html.erb within layouts/application
+  [1m[36mPhoto Load (0.5ms)[0m  [1m[34mSELECT DISTINCT "photos".* FROM "photos" ORDER BY "photos"."created_at" DESC[0m
+  ↳ app/views/photos/view.html.erb:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 17]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 11]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 9]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 8]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/view.html.erb:25
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos"[0m
+  ↳ app/views/photos/view.html.erb:38
+  Rendered photos/view.html.erb within layouts/application (Duration: 28.6ms | Allocations: 9646)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:18
+Completed 200 OK in 54ms (Views: 49.4ms | ActiveRecord: 3.4ms | Allocations: 17454)
+
+
+Started GET "/photos/17" for ::1 at 2019-12-20 18:19:06 +0900
+Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.4ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:15:in `show'
+  Rendering photos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/photos/show.html.erb:2
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 17]]
+  ↳ app/views/photos/show.html.erb:16
+  [1m[36mFavorite Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "favorites" WHERE "favorites"."user_id" = ? AND "favorites"."photo_id" = ? LIMIT ?[0m  [["user_id", 1], ["photo_id", 17], ["LIMIT", 1]]
+  ↳ app/models/user.rb:15:in `already_fav?'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 17]]
+  ↳ app/views/photos/show.html.erb:27
+  Rendered photos/show.html.erb within layouts/application (Duration: 12.4ms | Allocations: 3723)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 64ms (Views: 25.8ms | ActiveRecord: 2.2ms | Allocations: 15259)
+
+
+Started GET "/" for ::1 at 2019-12-20 18:19:15 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/photos/index.html.erb:23
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 8]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 9]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 11]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/index.html.erb:38
+  Rendered photos/index.html.erb within layouts/application (Duration: 37.5ms | Allocations: 7558)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 80ms (Views: 71.1ms | ActiveRecord: 4.3ms | Allocations: 15596)
+
+
+Started GET "/" for ::1 at 2019-12-20 18:21:43 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/photos/index.html.erb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 8]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 9]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 11]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/index.html.erb:38
+  Rendered photos/index.html.erb within layouts/application (Duration: 44.4ms | Allocations: 16860)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 77ms (Views: 57.3ms | ActiveRecord: 3.8ms | Allocations: 32814)
+
+
+Started GET "/" for ::1 at 2019-12-20 18:21:59 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.5ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/photos/index.html.erb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 8]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 9]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 11]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/index.html.erb:38
+  Rendered photos/index.html.erb within layouts/application (Duration: 75.1ms | Allocations: 16859)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 116ms (Views: 81.2ms | ActiveRecord: 7.5ms | Allocations: 32810)
+
+
+Started GET "/" for ::1 at 2019-12-20 18:22:05 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/photos/index.html.erb:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 8]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 9]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 11]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/index.html.erb:38
+  Rendered photos/index.html.erb within layouts/application (Duration: 21.1ms | Allocations: 7558)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 30.7ms | ActiveRecord: 3.1ms | Allocations: 15591)
+
+
+Started GET "/" for ::1 at 2019-12-20 18:23:18 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 1.3ms | Allocations: 19395)
+
+
+  [1m[36mCACHE Photo Load (0.0ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
+  
+NoMethodError (undefined method `sorts' for #<Photo::ActiveRecord_Associations_CollectionProxy:0x00007f9e2e9f3188>
+Did you mean?  sort):
+  
+app/controllers/photos_controller.rb:9:in `index'
+Started GET "/" for ::1 at 2019-12-20 18:23:37 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 1.2ms | Allocations: 19511)
+
+
+  [1m[36mCACHE Photo Load (0.0ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
+  
+NoMethodError (undefined method `sorts=' for #<Photo::ActiveRecord_Associations_CollectionProxy:0x00007f9e2b864dd8>
+Did you mean?  sort):
+  
+app/controllers/photos_controller.rb:9:in `index'
+Started GET "/" for ::1 at 2019-12-20 18:23:47 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 1.3ms | Allocations: 11904)
+
+
+  
+NoMethodError (undefined method `sorts=' for #<User:0x00007f9e2ccf3b78>):
+  
+app/controllers/photos_controller.rb:9:in `index'
+Started GET "/" for ::1 at 2019-12-20 18:24:21 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/photos/index.html.erb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 8]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 9]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 11]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/index.html.erb:38
+  Rendered photos/index.html.erb within layouts/application (Duration: 47.2ms | Allocations: 16832)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 83ms (Views: 61.5ms | ActiveRecord: 4.7ms | Allocations: 32843)
+
+
+Started GET "/users/edit" for ::1 at 2019-12-20 18:24:23 +0900
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 13.4ms | Allocations: 1896)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 54ms (Views: 44.3ms | ActiveRecord: 0.2ms | Allocations: 10368)
+
+
+Started GET "/" for ::1 at 2019-12-20 18:24:30 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/photos/index.html.erb:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 8]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 9]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 11]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/index.html.erb:38
+  Rendered photos/index.html.erb within layouts/application (Duration: 36.9ms | Allocations: 7558)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 77ms (Views: 63.2ms | ActiveRecord: 6.1ms | Allocations: 15597)
+
+
+Started GET "/" for ::1 at 2019-12-20 18:27:26 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."created_at" ASC[0m  [["user_id", 1]]
+  ↳ app/views/photos/index.html.erb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 8]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 9]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 11]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/index.html.erb:38
+  Rendered photos/index.html.erb within layouts/application (Duration: 18.5ms | Allocations: 8133)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 39ms (Views: 32.1ms | ActiveRecord: 2.4ms | Allocations: 17616)
+
+
+Started GET "/" for ::1 at 2019-12-20 18:27:41 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:7:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:8:in `index'
+  Rendering photos/index.html.erb within layouts/application
+  [1m[36mPhoto Load (0.5ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/views/photos/index.html.erb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 16]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 15]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 11]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 10]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 9]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 8]]
+  ↳ app/views/photos/index.html.erb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."photo_id" = ?[0m  [["photo_id", 7]]
+  ↳ app/views/photos/index.html.erb:38
+  Rendered photos/index.html.erb within layouts/application (Duration: 22.3ms | Allocations: 8129)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 46ms (Views: 35.4ms | ActiveRecord: 3.2ms | Allocations: 17608)
+
+

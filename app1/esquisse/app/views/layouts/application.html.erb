@@ -25,10 +25,10 @@
           <% if current_user %>
             <li><%= link_to("Photo", "/view") %></li>
             <li><%= link_to("Post", "/#{current_user.id}/post") %></li>
-            <li><%= link_to "LogOut", destroy_user_session_path, :method => :delete %></li>
+            <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
           <% else %>
-            <li><%= link_to("SignUp", "/users/sign_up") %></li>
-            <li><%= link_to("Login", "/users/sign_in") %></li>
+            <li><%= link_to("Sign up", "/users/sign_up") %></li>
+            <li><%= link_to("Log in", "/users/sign_in") %></li>
           <% end %>
         </ul>
       </div>

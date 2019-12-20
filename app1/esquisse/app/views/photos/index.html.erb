@@ -12,15 +12,15 @@
   </div>
   <!--お気に入りページのリンク表示を予定-->
    <ul class="collection">
-    <li class="collection-item"><%= link_to "Profile", "/#{current_user.id}/profile" %></li>
+    <li class="collection-item"><%= link_to "Profile", "/users/edit" %></li>
     <li class="collection-item"><%= link_to "Post", "#{current_user.id}/post" %></li>
     <li class="collection-item"><%= link_to "Photo", "/view" %></li>
-    <li class="collection-item"><%= link_to "favorite", "#{current_user.id}/favorite" %></li>
-    <li class="collection-item"><%= link_to "LogOut", destroy_user_session_path, :method => :delete %></li>
+    <li class="collection-item"><%= link_to "Favorite", "#{current_user.id}/favorite" %></li>
+    <li class="collection-item"><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
   </ul>
   <hr>
   <h3>MyPhoto</h3>
-  <% @user.photos.each do |photo| %>
+  <% @user.photos.order(created_at: :desc).each do |photo| %>
     <div class="posts-index-item">
       <div class= "centering_parent">
         <div class= "centering_item">

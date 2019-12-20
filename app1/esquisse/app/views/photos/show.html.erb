@@ -1,4 +1,9 @@
-<p>Contributor:<%= @photo.user.email %></p>
+<p>Contributor:
+  <% if @photo.user.name != nil %>
+    <%= @photo.user.name %></p>
+  <% else %>
+    <%= @photo.user.email %></p>
+  <% end %>
 <div class="posts-index-item">
   <div class="img-box">
     <!-- 写真を表示-->
@@ -9,14 +14,21 @@
     <%= @photo.content %>
   </div>
   <p>good: <%= @photo.favorites.count %></p>
-  <% if current_user.already_fav?(@photo) %>
-    <%= button_to 'cancel', photo_favorite_path(@photo), method: :delete %>
-  <% else %>
-    <%= button_to 'good', photo_favorites_path(@photo) %>
+  <!--自身で自身の写真にいいね!はできないようにする-->
+  <% if current_user.id != @photo.user.id %>
+    <% if current_user.already_fav?(@photo) %>
+      <%= button_to 'cancel', photo_favorite_path(@photo), method: :delete,class: "waves-effect waves-light btn" %>
+    <% else %>
+      <%= button_to 'good', photo_favorites_path(@photo),class: "waves-effect waves-light btn" %>
+    <% end %>
   <% end %>
 </div>
 <h3>Liked User</h3>
 <% @photo.favorite_user.each do |user| %>
-  <li><%= user.email %></li>
+  <% if @photo.user.name != nil %>
+    <li><%= user.name %></li>
+  <% else %>
+    <li><%= user.email %></li>
+  <% end %>
 <% end %>
 <%= link_to "My Page", photos_path %>
