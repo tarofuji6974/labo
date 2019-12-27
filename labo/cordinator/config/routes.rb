@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  #resources :meetings
   get 'tasks/index'
   get 'events/index'
+  get 'events/show'
+  get 'meetings/index'
 
   root 'home#index'
 
