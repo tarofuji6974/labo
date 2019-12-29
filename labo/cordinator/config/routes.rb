@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'events/index'
   get 'events/show'
   get 'meetings/index'
+  post 'create' => 'events#create'
+  get 'events/create/:id' => 'events#view'
 
   root 'home#index'
 

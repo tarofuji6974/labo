@@ -1,0 +1,5 @@
+  <p>イベントが作成されました。以下のURLを関係者に共有しましょう</p>
+  <%= form_tag("/edit/#{@event.id}",{multipart: true,name:"calendarForm"}) do %>
+    <input type="text" value = "URLxxx/<%= @event.url %>">
+    <input type="submit" value="イベントページへ" %>
+  <% end %>

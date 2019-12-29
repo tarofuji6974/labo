@@ -10,15 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_27_132618) do
+ActiveRecord::Schema.define(version: 2019_12_29_125552) do
 
   create_table "events", force: :cascade do |t|
     t.string "title"
     t.text "candidate_date"
     t.text "memo"
     t.text "url"
-    t.datetime "start_date"
-    t.datetime "end_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
