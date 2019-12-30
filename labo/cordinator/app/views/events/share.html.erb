@@ -1,0 +1,35 @@
+<%= @event.title %>
+<br>
+<%= @event.memo %>
+<br>
+<%= @event.url %>
+<br>
+<%= @event.candidate_date %>
+<br>
+ <table border="1">
+    <tr>
+      <th>候補日</th>
+      <th>○</th>
+      <th>▲</th>
+      <th>✖︎</th>
+    </tr>
+    <% @event_s.each do |es| %>
+      <tr>
+        <td><%= es %></td>
+        <td>xxxx</td>
+        <td>xxxx</td>
+        <td>xxxx</td>
+      </tr>
+    <% end %>
+</table>
+
+<hr>
+<p>候補日</p>
+<% @event_s.each_with_index do |es,i| %>
+  <p>
+  <%= es %>
+  <input type = "radio" name= <%= "status#{i}" %> value="○">
+  <input type = "radio" name= <%= "status#{i}" %> value="▲">
+  <input type = "radio" name= <%= "status#{i}" %> value="✖︎">
+  </p>
+<% end %>

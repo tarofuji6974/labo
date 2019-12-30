@@ -170,6 +170,8 @@ GEM
       tilt
     ref (2.0.0)
     regexp_parser (1.6.0)
+    resources_id_replace (0.0.1)
+      actionpack (>= 3.0.0)
     rspec-core (3.9.0)
       rspec-support (~> 3.9.0)
     rspec-expectations (3.9.0)
@@ -260,6 +262,7 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.1)
   react-rails
+  resources_id_replace
   rspec-rails (~> 3.6)
   sass-rails (>= 6)
   selenium-webdriver
