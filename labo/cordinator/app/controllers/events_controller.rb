@@ -10,12 +10,12 @@ class EventsController < ApplicationController
       title: params[:title],
       memo: params[:memo],
       candidate_date: params[:calendar],
-      url: SecureRandom.urlsafe_base64
+      url: SecureRandom.urlsafe_base64,
+      candidate_count: "0人"
     )
+    count = params[:calendar].count('\n')
 
-    #ランダムなURLトークンの生成
-    #@event.url = time.strftime('%Y%m%d%H:%M:%S').to_s
-    #@event.url = SecureRandom.urlsafe_base64
+    #@event.candidate_count = "0人-0人-0人/" * count
 
     if @event.save
       redirect_to("/events/create/#{@event.id}")
@@ -38,6 +38,25 @@ class EventsController < ApplicationController
     end
 
     @event_s = @event.candidate_date.split("\r\n")
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    #参会者登録処理
+    #検証中
+
+    if params[:status0] == "○"
+      @event.candidate_count = params[:name]
+    end
+
+    if @event.save
+      flash[:notice] = "登録しました"
+      redirect_to("/share/#{@event.id}/#{@event.url}")
+    else
+      render("/share/#{@event.id}/#{@event.url}")
+    end
+
+
   end
 
   def set_event_url

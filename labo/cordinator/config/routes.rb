@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'meetings/index'
   post 'create' => 'events#create'
   get 'share/:id/:url' => 'events#share'
+  post 'update/:id' => 'events#update'
   get 'events/create/:id' => 'events#view'
 
   root 'meetings#index'

@@ -1,3 +1,19 @@
+<script type="text/javascript">
+<!--
+function addStatus(str)
+{
+// form要素を取得
+  //alert(str);
+document.target.hidden_status_data.value = str;
+alert(document.target.hidden_status_data.value);
+
+
+}
+// -->
+</script>
+
+<%= @event.id %>
+<br>
 <%= @event.title %>
 <br>
 <%= @event.memo %>
@@ -6,6 +22,7 @@
 <br>
 <%= @event.candidate_date %>
 <br>
+<%= @event.candidate_count %>
  <table border="1">
     <tr>
       <th>候補日</th>
@@ -16,20 +33,34 @@
     <% @event_s.each do |es| %>
       <tr>
         <td><%= es %></td>
-        <td>xxxx</td>
-        <td>xxxx</td>
-        <td>xxxx</td>
+        <% if @event.candidate_count == "0人" %>
+          <td>0人</td>
+          <td>0人</td>
+          <td>0人</td>
+        <% else %>
+          <td>xx人</td>
+          <td>xx人</td>
+          <td>xx人</td>
+        <% end %>
       </tr>
     <% end %>
 </table>
 
 <hr>
-<p>候補日</p>
-<% @event_s.each_with_index do |es,i| %>
-  <p>
-  <%= es %>
-  <input type = "radio" name= <%= "status#{i}" %> value="○">
-  <input type = "radio" name= <%= "status#{i}" %> value="▲">
-  <input type = "radio" name= <%= "status#{i}" %> value="✖︎">
-  </p>
+<%= form_tag("/update/#{@event.id}",{multipart: true,name:"target"}) do %>
+  <p>名前</p>
+  <input type="text" name="name">
+  <br>
+  <p>候補日</p>
+  <% @event_s.each_with_index do |es,i| %>
+    <p>
+    <%= es %>
+    ○<input type = "radio" name= <%= "status#{i}" %> value="○" onClick="addStatus(this.value)">
+    ▲<input type = "radio" name= <%= "status#{i}" %> value="▲">
+    ✖︎<input type = "radio" name= <%= "status#{i}" %> value="✖︎">
+    </p>
+  <% end %>
+  <br>
+  <input type="hidden" name="hidden_status_data">
+  <input type="submit" value="スケジュールを入力する">
 <% end %>
