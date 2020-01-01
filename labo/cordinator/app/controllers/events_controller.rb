@@ -38,16 +38,28 @@ class EventsController < ApplicationController
     end
 
     @event_s = @event.candidate_date.split("\r\n")
+    #検証中
+
+    @test = ''
+    if @event.candidate_count != '0人'
+      hash = {ruby:"rails",python:"Django",php:"cakePHP"}
+      @test = @event.candidate_count.match(/「name:(\w+)」/)
+
+    end
   end
 
   def update
     @event = Event.find(params[:id])
     #参会者登録処理
     #検証中
-
-    if params[:status0] == "○"
-      @event.candidate_count = params[:name]
+    if params[:name] != nil
+      @event.candidate_count += "///「name:" + params[:name] + 
+                              "」//「status:" + params[:hidden_status_data] + 
+                              "」"
+      else
+        render("/share/#{@event.id}/#{@event.url}")
     end
+
 
     if @event.save
       flash[:notice] = "登録しました"
@@ -55,7 +67,6 @@ class EventsController < ApplicationController
     else
       render("/share/#{@event.id}/#{@event.url}")
     end
-
 
   end
 

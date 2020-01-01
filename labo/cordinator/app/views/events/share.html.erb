@@ -1,13 +1,35 @@
 <script type="text/javascript">
 <!--
-function addStatus(str)
+var array = [];
+
+function addStatus(str,str2)
 {
-// form要素を取得
-  //alert(str);
-document.target.hidden_status_data.value = str;
-alert(document.target.hidden_status_data.value);
+  var spl = str2.split('status');
+  //alert(Number(spl[1]));
+  array[Number(spl[1])] = str + '/';
+  //document.target.hidden_status_data.value = str;
+  //lert(array[Number(spl[1])]);
+}
 
+function confirmStatus()
+{
+  var count = 0;
+  while (true) {
+    
+    if(array[count].length > 0 ){
+      //alert(array[count]);
 
+      document.target.hidden_status_data.value += array[count];
+
+      count++;
+
+    }else{
+
+      break;
+    }
+    
+  }
+  //alert("ok");
 }
 // -->
 </script>
@@ -23,6 +45,8 @@ alert(document.target.hidden_status_data.value);
 <%= @event.candidate_date %>
 <br>
 <%= @event.candidate_count %>
+<br>
+<%= @test %>
  <table border="1">
     <tr>
       <th>候補日</th>
@@ -55,12 +79,12 @@ alert(document.target.hidden_status_data.value);
   <% @event_s.each_with_index do |es,i| %>
     <p>
     <%= es %>
-    ○<input type = "radio" name= <%= "status#{i}" %> value="○" onClick="addStatus(this.value)">
-    ▲<input type = "radio" name= <%= "status#{i}" %> value="▲">
-    ✖︎<input type = "radio" name= <%= "status#{i}" %> value="✖︎">
+    ○<input type = "radio" name= <%= "status#{i}" %> value="○" onClick="addStatus(this.value, this.name)">
+    ▲<input type = "radio" name= <%= "status#{i}" %> value="▲" onClick= "addStatus(this.value, this.name)">
+    ✖︎<input type = "radio" name= <%= "status#{i}" %> value="✖︎" onClick="addStatus(this.value, this.name)">
     </p>
   <% end %>
   <br>
   <input type="hidden" name="hidden_status_data">
-  <input type="submit" value="スケジュールを入力する">
+  <input type="submit" value="スケジュールを入力する" onclick="confirmStatus()">
 <% end %>
