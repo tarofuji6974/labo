@@ -1,12 +1,36 @@
 <script type="text/javascript">
 <!--
+
+var test = <%= @hash_json %>
+var a = '';
+var b = '';
+var c = '';
+
 var array = [];
+
+window.onload = function() {
+  document.getElementById("p1").style.display ="none";
+  document.getElementById("p2").style.display ="none";
+
+  //alert(document.getElementById("p1").innerHTML);
+
+  //alert(test);
+
+  var p1 = document.getElementById("p1").innerHTML;
+  var p2 = document.getElementById("p1").innerHTML;
+
+  p1 = p1.split('/「name:(\w+)」/');
+
+  alert(p1);
+  alert(p2);
+
+}
 
 function addStatus(str,str2)
 {
   var spl = str2.split('status');
   //alert(Number(spl[1]));
-  array[Number(spl[1])] = str + '/';
+  array[Number(spl[1])] = str + 'chk';
   //document.target.hidden_status_data.value = str;
   //lert(array[Number(spl[1])]);
 }
@@ -46,7 +70,16 @@ function confirmStatus()
 <br>
 <%= @event.candidate_count %>
 <br>
-<%= @test %>
+<br>
+名前だけ<%= @test %>
+<br>
+出欠のみ<%= @test2 %>
+<br>
+ハッシュ<%= @hash %>
+<p id ="p1"><%= @event.candidate_count %></p>
+<p id ="p2"><%= @test2 %></p>
+<input name="hash_json" type="hidden" value=<%= @hash_json %> class='hash_json'/>
+<br>
  <table border="1">
     <tr>
       <th>候補日</th>
@@ -79,9 +112,9 @@ function confirmStatus()
   <% @event_s.each_with_index do |es,i| %>
     <p>
     <%= es %>
-    ○<input type = "radio" name= <%= "status#{i}" %> value="○" onClick="addStatus(this.value, this.name)">
-    ▲<input type = "radio" name= <%= "status#{i}" %> value="▲" onClick= "addStatus(this.value, this.name)">
-    ✖︎<input type = "radio" name= <%= "status#{i}" %> value="✖︎" onClick="addStatus(this.value, this.name)">
+    ○<input type = "radio" name= <%= "status#{i}" %> value="A" onClick="addStatus(this.value, this.name)">
+    ▲<input type = "radio" name= <%= "status#{i}" %> value="B" onClick= "addStatus(this.value, this.name)">
+    ✖︎<input type = "radio" name= <%= "status#{i}" %> value="C" onClick="addStatus(this.value, this.name)">
     </p>
   <% end %>
   <br>
