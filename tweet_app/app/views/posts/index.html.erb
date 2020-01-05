@@ -1,0 +1,12 @@
+<div class="main posts-index">
+  <div class="container">
+    <!-- 以下の<% %>を使ってeach文を追加してください -->
+    <% @posts.each do |post|  %>
+      <div class="posts-index-item">
+        <!-- 以下の<%= %>を使って投稿内容を表示してください -->
+        <%= link_to(post.content,"/posts/#{post.id}") %>
+      </div>
+    <!-- 以下の<% %>を使ってeach文のendを追加してください -->
+    <%end %>
+  </div>
+</div>

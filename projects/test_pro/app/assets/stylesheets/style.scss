@@ -1,0 +1,51 @@
+#site_box{
+  width:850px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/****ヘッダ部*****/
+.header{
+  background-color:black;
+  height:50px;
+}
+#nav_area{
+  float:right;
+}
+#icon{
+}
+#entry{
+}
+#login{
+}
+
+ul.nav_list li{
+  display:inline;
+}
+ul.nav_list li a{
+  text-decoration:none;
+}
+
+#logo{
+  font-weight:bold;
+  color:white;
+  float:left;
+}
+
+/****コンテンツ部*****/
+.nav_contents{
+  overflow:hidden;
+}
+.contents_left{
+  float:left;
+  width:285px;
+}
+.contents_center{
+  width:285px;
+  float:left;
+}
+.contents_right{
+  width:280px;
+  float:left;
+}
+

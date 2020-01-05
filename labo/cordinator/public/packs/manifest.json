@@ -1,0 +1,44 @@
+{
+  "application.js": "/packs/js/application-d612b8a1311863351fcc.js",
+  "application.js.map": "/packs/js/application-d612b8a1311863351fcc.js.map",
+  "calendar.js": "/packs/js/calendar-f81325921c6430bd22ae.js",
+  "calendar.js.map": "/packs/js/calendar-f81325921c6430bd22ae.js.map",
+  "entrypoints": {
+    "application": {
+      "js": [
+        "/packs/js/application-d612b8a1311863351fcc.js"
+      ],
+      "js.map": [
+        "/packs/js/application-d612b8a1311863351fcc.js.map"
+      ]
+    },
+    "calendar": {
+      "js": [
+        "/packs/js/calendar-f81325921c6430bd22ae.js"
+      ],
+      "js.map": [
+        "/packs/js/calendar-f81325921c6430bd22ae.js.map"
+      ]
+    },
+    "hello_react": {
+      "js": [
+        "/packs/js/hello_react-e76257105b5231046826.js"
+      ],
+      "js.map": [
+        "/packs/js/hello_react-e76257105b5231046826.js.map"
+      ]
+    },
+    "server_rendering": {
+      "js": [
+        "/packs/js/server_rendering-eaa583e26c7b83976a5c.js"
+      ],
+      "js.map": [
+        "/packs/js/server_rendering-eaa583e26c7b83976a5c.js.map"
+      ]
+    }
+  },
+  "hello_react.js": "/packs/js/hello_react-e76257105b5231046826.js",
+  "hello_react.js.map": "/packs/js/hello_react-e76257105b5231046826.js.map",
+  "server_rendering.js": "/packs/js/server_rendering-eaa583e26c7b83976a5c.js",
+  "server_rendering.js.map": "/packs/js/server_rendering-eaa583e26c7b83976a5c.js.map"
+}
