@@ -1,30 +1,7 @@
 <script type="text/javascript">
 <!--
 
-var test = <%= @hash_json %>
-var a = '';
-var b = '';
-var c = '';
-
 var array = [];
-
-window.onload = function() {
-  document.getElementById("p1").style.display ="none";
-  document.getElementById("p2").style.display ="none";
-
-  //alert(document.getElementById("p1").innerHTML);
-
-  //alert(test);
-
-  var p1 = document.getElementById("p1").innerHTML;
-  var p2 = document.getElementById("p1").innerHTML;
-
-  p1 = p1.split('/「name:(\w+)」/');
-
-  alert(p1);
-  alert(p2);
-
-}
 
 function addStatus(str,str2)
 {
@@ -55,6 +32,7 @@ function confirmStatus()
   }
   //alert("ok");
 }
+
 // -->
 </script>
 
@@ -76,18 +54,37 @@ function confirmStatus()
 出欠のみ<%= @test2 %>
 <br>
 ハッシュ<%= @hash %>
-<p id ="p1"><%= @event.candidate_count %></p>
-<p id ="p2"><%= @test2 %></p>
-<input name="hash_json" type="hidden" value=<%= @hash_json %> class='hash_json'/>
+<p id ="p1">
+  <% @hash.each do |key,value| %>
+    <%= key %>-
+  <% end %>
+</p>
+<p id ="p2">
+  <% @hash.each do |key,value| %>
+    <%= value %>-
+  <% end %>
+</p>
+<br>
+<%= @sample %>
+<br>
+<%= @hash_json %>
+<br>
+
 <br>
  <table border="1">
     <tr>
       <th>候補日</th>
-      <th>○</th>
-      <th>▲</th>
-      <th>✖︎</th>
+      <% if !@hash.empty? %>
+        <% @hash.each do |key,value| %>
+          <td><%= key[0] %>さん</td>
+         <% end %>
+      <% else %>
+          <th>○</th>
+          <th>▲</th>
+          <th>✖︎</th>
+      <% end %>
     </tr>
-    <% @event_s.each do |es| %>
+    <% @event_s.each_with_index do |es,i| %>
       <tr>
         <td><%= es %></td>
         <% if @event.candidate_count == "0人" %>
@@ -95,9 +92,15 @@ function confirmStatus()
           <td>0人</td>
           <td>0人</td>
         <% else %>
-          <td>xx人</td>
-          <td>xx人</td>
-          <td>xx人</td>
+          <% @hash.each do |key,value| %>
+            <% if value[i] == "A" %>
+              <td>○</td>
+            <% elsif value[i] == "B" %>
+              <td>▲</td>
+            <% else %>
+              <td>✖︎</td>
+            <% end %>
+          <% end %>
         <% end %>
       </tr>
     <% end %>
@@ -106,7 +109,7 @@ function confirmStatus()
 <hr>
 <%= form_tag("/update/#{@event.id}",{multipart: true,name:"target"}) do %>
   <p>名前</p>
-  <input type="text" name="name">
+  <input type="text" name="name" pattern="[A-Za-z]*">
   <br>
   <p>候補日</p>
   <% @event_s.each_with_index do |es,i| %>
@@ -114,7 +117,7 @@ function confirmStatus()
     <%= es %>
     ○<input type = "radio" name= <%= "status#{i}" %> value="A" onClick="addStatus(this.value, this.name)">
     ▲<input type = "radio" name= <%= "status#{i}" %> value="B" onClick= "addStatus(this.value, this.name)">
-    ✖︎<input type = "radio" name= <%= "status#{i}" %> value="C" onClick="addStatus(this.value, this.name)">
+    ✖︎<input type = "radio" name= <%= "status#{i}" %> value="C" onClick="addStatus(this.value, this.name)" checked >
     </p>
   <% end %>
   <br>

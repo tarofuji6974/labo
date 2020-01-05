@@ -44,17 +44,23 @@ class EventsController < ApplicationController
     @test2 = ''
     @hash = {}
     @hash_json = ''
+    @sample = { a: 1, b: 2, c: 3 }
     if @event.candidate_count != '0人'
       #hash = {ruby:"rails",python:"Django",php:"cakePHP"}
       @test = @event.candidate_count.scan(/「name:(\w+)」/)
       @test2 =@event.candidate_count.scan(/status:(\w+)/)
 
+
+      ary = [@test, @test2].transpose
+      @hash_json = Hash[*ary.flatten]
+
       @test.each_with_index do |test,i|
         @hash.store(test,@test2[i].join.split("chk"))
       end
+      #@hash = Hash[*@hash.flatten]
 
-      @hash_json = @hash.to_json.html_safe
-      
+      #@hash_json = @hash.to_json.html_safe
+
     end
   end
 
