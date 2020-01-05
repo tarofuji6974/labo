@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   resources :events, :replace_id_with => 'url'
 
   get 'tasks/index'
-  #get 'events/index'
-  #get 'events/show'
   get 'meetings/index'
   post 'create' => 'events#create'
   get 'share/:id/:url' => 'events#share'

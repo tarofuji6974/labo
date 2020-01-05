@@ -26,7 +26,6 @@ class EventsController < ApplicationController
 
   def view
     @event = Event.find(params[:id])
-
   end
 
   def share
