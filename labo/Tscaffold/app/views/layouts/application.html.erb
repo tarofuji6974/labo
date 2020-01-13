@@ -9,7 +9,10 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
     <% if current_user %>
-      <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+      <li><%= link_to "プロフィール", "/profile/#{current_user.id}" %></li>
+      <li><%= link_to "お題一覧", "/view" %></li>
+      <li><%= link_to "お題をつくる", "/create/#{current_user.id}" %></li>
+      <li><%= link_to "ログアウト", destroy_user_session_path, :method => :delete %></li>
     <% end %>
   <body>
     <%= yield %>

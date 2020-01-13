@@ -1,0 +1,7 @@
+<%= form_tag("/create_theme",{multipart: true,name:"calendarForm"}) do %>
+<textarea name="theme"><%= @theme.theme %></textarea>
+<br>
+<input type ="hidden" name ="user_id" value = "<%= @user.id%>">
+<input type = "hidden" name= "user_name" value ="<%= @user.name%>">
+<input type="submit" value = "お題をつくる">
+<% end %>
