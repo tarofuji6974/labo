@@ -1,0 +1,21 @@
+<% if @user.name == nil %>
+  <%= @user.email %>
+<% else %>
+  <%= @user.name %>
+<% end %>
+
+<div id ="profile_area">
+  <p>プロフィール</p>
+  <%= @user.profile %>
+  <%= link_to("編集する","/profile_edit/#{@user.id}")%>
+</div>
+<div id = "my_theme_area">
+  <% if @theme.empty? %>
+    <p>まだお題が1件もありません</p>
+  <% else %>
+    <% @theme.each do |theme| %>
+      <!--要ページへのリンク/ステータスの表示-->
+      <%= theme.theme %> / <%= link_to("編集","theme_edit/#{theme.id}/#{theme.url}")%> / <%= link_to("削除する","/delete/#{theme.id}",{method:"post",data: { confirm: "削除しますか？" }}) %>
+    <% end %>
+  <% end %>
+</div>

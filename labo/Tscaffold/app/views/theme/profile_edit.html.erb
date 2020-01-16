@@ -1,0 +1,10 @@
+<h1>プロフィール編集</h1>
+
+<%= form_tag("/profile_update/#{@user.id}",{multipart: true}) do %>
+  <p>名前</p>
+  <input type = "text" name = "name" value= <%= @user.name %> >
+  <p>プロフィール</p>
+  <textarea name="profile"><%= @user.profile %></textarea>
+  <br>
+  <input type ="submit" value = "完了" name ="submitbtn">
+<% end %>

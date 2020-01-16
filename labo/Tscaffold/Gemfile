@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'resources_id_replace'
 
+gem 'redis-rails'
+
 #Rspecの導入
 gem 'rspec-rails'
 
@@ -38,6 +40,9 @@ gem 'devise'
 
 #ransackの導入
 gem 'ransack'
+
+#kaminariの導入
+gem 'kaminari'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

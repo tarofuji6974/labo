@@ -1,0 +1,10 @@
+<%= search_form_for @q,:url => {:action => :view} do |f| %>
+  <%= f.label :name, "Keyword" %>
+  <%= f.search_field :theme_cont %>
+<%= f.submit "Search" ,class: "waves-effect waves-light btn" %>
+<% end %>
+
+ <% @ask.each do |theme| %>
+  <!--後々修正予定。リンク先も追加すること-->
+  <p>投稿者:<%= theme.user_name%> タイトル:<%= theme.theme %></p>
+ <% end %>
