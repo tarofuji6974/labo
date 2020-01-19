@@ -92,9 +92,39 @@ class ThemeController < ApplicationController
     end
   end
 
-  #コメントの追加
-  def comment
+  #コメントの表示と投稿ページ
+  def theme_answer
+    @theme = Theme.find(params[:id])
+    @comments = Comment.where(user_id: @theme.user_id).order(created_at: :asc)
 
+    #URLが一致していない場合
+    if @theme.url != params[:url]
+      flash[:notice] = "URLが間違っています"
+      redirect_to("/view")
+      return
+    end
+
+    @comment = Comment.new
+  end
+
+  #コメントの投稿
+  def comments
+    @theme = Theme.find(params[:theme_id])
+    @comment = Comment.new(
+      user_id: params[:id],
+      comment: params[:comment]
+    )
+
+    #コメント投稿完了の判断
+    if @comment.save
+      flash[:notice] = "コメントを投稿しました"
+      redirect_to("/theme_answer/#{@theme.id}/#{@theme.url}")
+    else
+      #flash[:notice] = "#{@comment.user_id}/#{@comment.comment}"
+      #redirect_to(root_path)
+      flash[:notice] = "コメントを投稿できませんでした"
+      redirect_to("/theme_answer/#{@theme.id}/#{@theme.url}")
+    end
   end
 
   #お題の削除
