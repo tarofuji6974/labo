@@ -1,6 +1,7 @@
 <!-- レイアウトは後日検討-->
 <p>投稿者:<%= @theme.user_name%></p>
 <p>お題:<%= @theme.theme %></p>
+<p>ステータス:<%= @theme.status %></p>
 
 <!-- エラーメッセージを表示 -->
 <% @comment.errors.full_messages.each do |message| %>
@@ -19,12 +20,16 @@
     <% end %>
   <% end %>
 
-<%= form_tag("/comments/#{@theme.user_id}",{multipart: true}) do %>
-  コメント:
-  <br>
-  <!-- 要サイズ設定-->
-  <textarea name="comment"></textarea>
-  <input type="hidden" name="theme_id" value ="<%= @theme.id %>">
-  <br>
-  <input type ="submit" value = "コメントを書く" name ="submitbtn">
+<% if @theme.status == "募集中" %>
+  <%= form_tag("/comments/#{@theme.user_id}",{multipart: true}) do %>
+    コメント:
+    <br>
+    <!-- 要サイズ設定-->
+    <textarea name="comment"></textarea>
+    <input type="hidden" name="theme_id" value ="<%= @theme.id %>">
+    <br>
+    <input type ="submit" value = "コメントを書く" name ="submitbtn">
+  <% end %>
+  <% else %>
+  <p>募集は終了しましたので、コメントを投稿することはできません</p>
 <% end %>

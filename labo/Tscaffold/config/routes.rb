@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   post 'create_theme' => 'theme#create_theme'
   get 'profile/:id' => 'theme#profile'
   get 'profile_edit/:id' => 'theme#profile_edit'
+  get 'theme_edit/:id/:url' => 'theme#theme_edit'  #お題編集ページ
+  get 'theme_update/:id' => 'theme#theme_update'
   get 'theme_answer/:id/:url' => 'theme#theme_answer' #お題の個別ページ
   post 'comments/:id' => 'theme#comments' #コメントの投稿
   post 'profile_update/:id' => 'theme#profile_update'

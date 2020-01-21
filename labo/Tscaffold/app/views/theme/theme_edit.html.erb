@@ -1,0 +1,25 @@
+<p>お題:<%= @theme.theme %></p>
+<!-- 後日、切り替え機能を実装予定-->
+
+<% if @theme.status == "募集中" %>
+  <p>ステータス:<%= link_to("#{@theme.status}","/theme_update/#{@theme.id}",{data: { confirm: "ステータスを変更すると元に戻せません。本当に変更しますか?" }})%></p>
+  <% else %>
+    <p>ステータス:<%= @theme.status %></p>
+<% end %>
+
+<!-- コメント一覧の表示-->
+<% if @comments.empty? %>
+    <p>まだ回答が1件もありません</p>
+  <% else %>
+    <% @comments.each do |comment| %>
+      <!--要ページへのリンク/ステータスの表示-->
+      <p><%= comment.comment %></p>
+    <% end %>
+  <% end %>
+
+<div id='sosyal'>
+   <%= link_to 'Twitter', "https://twitter.com/share?url=#{request.url}&text=#{@theme.theme}", class: 'twitter', title: 'Twitter', target: '_blank' %>
+   <%= link_to 'Facebook', "https://www.facebook.com/sharer/sharer.php?u=#{request.url}&text=#{@theme.theme}", class: 'facebook', title: 'Facebook', target: '_blank' %>
+   <%= link_to 'LINE', "http://line.me/R/msg/text/?#{request.url}&text=#{@theme.theme}", class: 'line', title: 'LINE', target: '_blank' %>
+   <%= link_to 'Slack', "http://slackbutton.herokuapp.com/post/new/?url=#{request.url}&text=#{@theme.theme}", class: 'slack', title: 'Slack', target: '_blank' %>
+</div>

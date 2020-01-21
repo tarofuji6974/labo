@@ -38,7 +38,8 @@ class ThemeController < ApplicationController
       theme: params[:theme],
       user_id: params[:user_id],
       user_name: params[:user_name],
-      url: SecureRandom.urlsafe_base64
+      url: SecureRandom.urlsafe_base64,
+      status: "募集中"
     )
 
     @id = params[:user_id]
@@ -53,9 +54,30 @@ class ThemeController < ApplicationController
     end
   end
 
-  #お題の編集(ステータス切り替えのみ)
+  #お題の編集(ステータス切り替えが可能)
   def theme_edit
+    @theme = Theme.find(params[:id])
+    @comments = Comment.where(user_id: @theme.id).order(created_at: :asc)
 
+    #お題の投稿者でない場合、ページ遷移させる
+    if @theme.user_id != current_user.id
+      flash[:notice] = "お題の投稿者ではありませんので、編集できません"
+      redirect_to(root_path)
+    end
+  end
+
+  #お題の募集終了
+  def theme_update
+    @theme = Theme.find(params[:id])
+    @theme.status = "募集終了"
+
+    if @theme.save
+        flash[:notice] = "ステータス変更完了"
+        redirect_to("/theme_edit/#{@theme.id}/#{@theme.url}")
+    else
+        flash[:notice] = "ステータスを変更できませんでした"
+        redirect_to("/theme_edit/#{@theme.id}/#{@theme.url}")
+    end
   end
 
   def profile
@@ -86,7 +108,6 @@ class ThemeController < ApplicationController
     if user.save
       flash[:notice] = "編集が完了しました"
       redirect_to(root_path)
-
     else
       render("/profile_edit/#{user.id}")
     end
@@ -95,13 +116,19 @@ class ThemeController < ApplicationController
   #コメントの表示と投稿ページ
   def theme_answer
     @theme = Theme.find(params[:id])
-    @comments = Comment.where(user_id: @theme.user_id).order(created_at: :asc)
+    @comments = Comment.where(user_id: @theme.id).order(created_at: :asc)
 
     #URLが一致していない場合
     if @theme.url != params[:url]
       flash[:notice] = "URLが間違っています"
       redirect_to("/view")
       return
+    end
+
+    #投稿者の場合
+    if @theme.user_id == current_user.id
+      flash[:notice] = "投稿者は自分の投稿にコメントすることはできません"
+      redirect_to("/theme_edit/#{@theme.id}/#{@theme.url}")
     end
 
     @comment = Comment.new
@@ -111,7 +138,7 @@ class ThemeController < ApplicationController
   def comments
     @theme = Theme.find(params[:theme_id])
     @comment = Comment.new(
-      user_id: params[:id],
+      user_id: params[:theme_id],
       comment: params[:comment]
     )
 
