@@ -1,7 +1,9 @@
 <%= form_tag("/create_theme",{multipart: true}) do %>
-<textarea name="theme"><%= @theme.theme %></textarea>
+<textarea class = "textlines" placeholder="お題を入力してください" name="theme"><%= @theme.theme %></textarea>
 <br>
 <input type ="hidden" name ="user_id" value = "<%= @user.id%>">
 <input type = "hidden" name= "user_name" value ="<%= @user.name%>">
-<input type="submit" value = "お題をつくる">
+<div class="btn-container">
+  <input type ="submit" class="btn-border" value = "お題をつくる" name ="submitbtn">
+</div>
 <% end %>

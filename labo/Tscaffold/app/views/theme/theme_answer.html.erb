@@ -28,8 +28,10 @@
     <textarea name="comment"></textarea>
     <input type="hidden" name="theme_id" value ="<%= @theme.id %>">
     <br>
-    <input type ="submit" value = "コメントを書く" name ="submitbtn">
+    <div class="btn-container">
+      <input type ="submit" class="btn-border" value = "コメントを書く" name ="submitbtn">
+    </div>
   <% end %>
-  <% else %>
+<% else %>
   <p>募集は終了しましたので、コメントを投稿することはできません</p>
 <% end %>

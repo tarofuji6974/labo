@@ -7,5 +7,9 @@
  <% @ask.each do |theme| %>
   <!--後々修正予定。リンク先も追加すること-->
   <p>投稿者:<%= theme.user_name%> タイトル:<%= theme.theme %> 
-    <%= link_to("コメントする","/theme_answer/#{theme.id}/#{theme.url}") %></p>
+    <% if theme.user_id == current_user.id %>
+      <%= link_to("編集する","/theme_edit/#{theme.id}/#{theme.url}") %></p>
+    <% else %>
+      <%= link_to("コメントする","/theme_answer/#{theme.id}/#{theme.url}") %></p>
+    <% end %>
  <% end %>

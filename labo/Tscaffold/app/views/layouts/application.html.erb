@@ -7,12 +7,17 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
   </head>
     <% if current_user %>
-      <li><%= link_to "プロフィール", "/profile/#{current_user.id}" %></li>
-      <li><%= link_to "お題一覧", "/view" %></li>
-      <li><%= link_to "お題をつくる", "/create/#{current_user.id}" %></li>
-      <li><%= link_to "ログアウト", destroy_user_session_path, :method => :delete %></li>
+    <nav>
+      <ul>
+        <li><%= link_to "プロフィール", "/profile/#{current_user.id}" %></li>
+        <li><%= link_to "お題一覧", "/view" %></li>
+        <li><%= link_to "お題をつくる", "/create/#{current_user.id}" %></li>
+        <li><%= link_to "ログアウト", destroy_user_session_path, :method => :delete %></li>
+      </ul>
+    </nav>
     <% end %>
   <body>
      <% if flash[:notice] %>
@@ -21,5 +26,6 @@
       </div>
     <% end %>
     <%= yield %>
+    <div id="page_top"><a href="#"></a></div>
   </body>
 </html>
