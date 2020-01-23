@@ -138,7 +138,7 @@ class ThemeController < ApplicationController
   def comments
     @theme = Theme.find(params[:theme_id])
     @comment = Comment.new(
-      user_id: params[:theme_id],
+      user_id: @theme.id,
       comment: params[:comment]
     )
 

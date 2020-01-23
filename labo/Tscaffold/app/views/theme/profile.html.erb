@@ -1,13 +1,13 @@
 <% if @user.name == nil %>
-  <%= @user.email %>
+  <p><%= @user.email %></p>
 <% else %>
-  <%= @user.name %>
+  <p><%= @user.name %></p>
 <% end %>
 
+
 <div id ="profile_area">
-  <p>プロフィール</p>
+  <p>プロフィール  <%= link_to("編集する","/profile_edit/#{@user.id}")%></p>
   <%= @user.profile %>
-  <%= link_to("編集する","/profile_edit/#{@user.id}")%>
 </div>
 <div id = "my_theme_area">
   <% if @theme.empty? %>

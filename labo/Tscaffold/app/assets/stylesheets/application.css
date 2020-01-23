@@ -122,3 +122,34 @@ border-bottom: 3px solid #F0E475;
   border-color: #cbe585;
   color: #FFF;
 }
+
+
+/**
+flashメッセージ
+**/
+.flash-left {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 0 1.5em 15px;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #e0edff;
+}
+
+.flash-left:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-right: 15px solid #e0edff;
+}
+
+.flash-left p {
+  margin: 0;
+  padding: 0;
+}
