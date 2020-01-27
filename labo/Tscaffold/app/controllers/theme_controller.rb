@@ -1,6 +1,15 @@
 class ThemeController < ApplicationController
   PER = 10  #投稿の表示数
 
+  def entry_point
+    if current_user
+      Redis.current.set(current_user.id, current_user.name)
+      redirect_to("/profile/#{Redis.key[0]}")
+    else
+      redirect_to("/users/sign_in")
+    end
+  end
+
   #お題の閲覧
   def view
      #ransack
@@ -157,7 +166,10 @@ class ThemeController < ApplicationController
   #お題の削除
   def delete
     theme = Theme.find_by(id: params[:id])
-    theme.destroy
+    theme.delete
+
+
+    #Theme.where(id: params[:id]).destroy_all
 
     flash[:notice] = "お題を削除しました"
     redirect_to(root_path)

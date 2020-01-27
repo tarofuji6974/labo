@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :theme, :replace_id_with => 'url'
   resources :comment
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root 'theme#profile'
+  #root 'theme#profile'
+  root 'theme#entry_point'
 
   get 'create/:id' => 'theme#create'
   post 'create_theme' => 'theme#create_theme'
