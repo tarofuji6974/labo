@@ -1,11 +1,21 @@
 class ThemeController < ApplicationController
   PER = 10  #投稿の表示数
 
+  #Sidekiqによる非同期処理
+  def deleteque
+    EventWorker.perform_in 1.hour
+  end
+
   def entry_point
     if current_user
       Redis.current.set(current_user.id, current_user.name)
-      redirect_to("/profile/#{Redis.key[0]}")
+
+      id = Redis.current.keys(current_user.id)
+
+      redirect_to("/profile/#{id}")
     else
+      #Redisから情報を削除
+      #Redis.current.srem(Redis.keys(current_user.id), 1)
       redirect_to("/users/sign_in")
     end
   end

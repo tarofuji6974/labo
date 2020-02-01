@@ -29,6 +29,11 @@ gem 'resources_id_replace'
 
 gem 'redis-rails'
 
+gem 'sidekiq'
+
+#これがないとsidekiqの実行でエラーになる
+gem 'redis-namespace'
+
 #Rspecの導入
 gem 'rspec-rails'
 

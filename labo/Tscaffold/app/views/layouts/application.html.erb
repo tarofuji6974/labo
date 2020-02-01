@@ -10,14 +10,14 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
   </head>
     <% if current_user %>
-    <nav>
-      <ul>
-        <li><%= link_to "プロフィール", "/profile/#{current_user.id}" %></li>
-        <li><%= link_to "お題一覧", "/view" %></li>
-        <li><%= link_to "お題をつくる", "/create/#{current_user.id}" %></li>
-        <li><%= link_to "ログアウト", destroy_user_session_path, :method => :delete %></li>
-      </ul>
-    </nav>
+      <nav>
+        <ul>
+          <li><%= link_to "プロフィール", "/profile/#{current_user.id}" %></li>
+          <li><%= link_to "お題一覧", "/view" %></li>
+          <li><%= link_to "お題をつくる", "/create/#{current_user.id}" %></li>
+          <li><%= link_to "ログアウト", destroy_user_session_path, :method => :delete %></li>
+        </ul>
+      </nav>
     <% end %>
   <body>
      <% if flash[:notice] %>
