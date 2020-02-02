@@ -2,15 +2,19 @@ class ThemeController < ApplicationController
   PER = 10  #投稿の表示数
 
   #Sidekiqによる非同期処理
-  def deleteque
-    EventWorker.perform_in 1.hour
-  end
+  #def deleteque
+  #  EventWorker.perform_in 30.minites
+  #end
 
   def entry_point
     if current_user
       Redis.current.set(current_user.id, current_user.name)
 
       id = Redis.current.keys(current_user.id)
+
+      #バックグラウンドジョブの実行
+      EventWorker.perform_async(current_user.id)
+      #EventWorker.perform_in 30.minutes
 
       redirect_to("/profile/#{id}")
     else
