@@ -2,6 +2,7 @@
 <!-- 後日、切り替え機能を実装予定-->
 
 <% if @theme.status == "募集中" %>
+  <p>回答期限:<%= @theme.limit %></p>
   <p>ステータス:<%= link_to("#{@theme.status}","/theme_update/#{@theme.id}",{data: { confirm: "ステータスを変更すると元に戻せません。本当に変更しますか?" }})%></p>
   <% else %>
     <p>ステータス:<%= @theme.status %></p>

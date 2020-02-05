@@ -62,6 +62,7 @@ class ThemeController < ApplicationController
       user_id: params[:user_id],
       user_name: params[:user_name],
       url: SecureRandom.urlsafe_base64,
+      limit: Time.zone.local(params[:limit]["limit(1i)"].to_i, params[:limit]["limit(2i)"].to_i, params[:limit]["limit(3i)"].to_i),
       status: "募集中"
     )
 

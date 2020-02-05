@@ -1,8 +1,13 @@
 <%= form_tag("/create_theme",{multipart: true}) do %>
+回答期限:
+<%= datetime_select 'limit', 'limit',{:discard_hour => true, :use_month_numbers => true } %>
+<br>
+お題:
 <textarea class = "textlines" placeholder="お題を入力してください" name="theme"><%= @theme.theme %></textarea>
 <br>
 <input type ="hidden" name ="user_id" value = "<%= @user.id%>">
 <input type = "hidden" name= "user_name" value ="<%= @user.name%>">
+
 <div class="btn-container">
   <input type ="submit" class="btn-border" value = "お題をつくる" name ="submitbtn">
 </div>
