@@ -62,11 +62,22 @@ class ThemeController < ApplicationController
       user_id: params[:user_id],
       user_name: params[:user_name],
       url: SecureRandom.urlsafe_base64,
-      limit: Time.zone.local(params[:limit]["limit(1i)"].to_i, params[:limit]["limit(2i)"].to_i, params[:limit]["limit(3i)"].to_i),
+      limit: Time.zone.local(params[:limit]["limit(1i)"].to_i,
+                             params[:limit]["limit(2i)"].to_i, 
+                             params[:limit]["limit(3i)"].to_i),
       status: "募集中"
     )
 
     @id = params[:user_id]
+
+    #期限 > 現在日時の場合、作成させない
+    if !limit_date_check?(params[:limit]["limit(1i)"].to_s + "/" +
+                          params[:limit]["limit(2i)"].to_s + "/" +
+                          params[:limit]["limit(3i)"].to_s)
+      #render :create
+      redirect_to("/create/#{@id}")
+      return
+    end
 
     #保存処理
     if @theme.save
@@ -74,7 +85,8 @@ class ThemeController < ApplicationController
       redirect_to(root_path)
     else
       #javascriptで入力チェックが必要
-      render("/create/#{@id}")
+      flash[:notice] = "お題の本文を入力してください"
+      redirect_to("/create/#{@id}")
     end
   end
 
@@ -183,10 +195,33 @@ class ThemeController < ApplicationController
     theme = Theme.find_by(id: params[:id])
     theme.delete
 
-
     #Theme.where(id: params[:id]).destroy_all
 
     flash[:notice] = "お題を削除しました"
     redirect_to(root_path)
   end
+
+  #現在日時 < 期限日にならないようチェック
+  def limit_date_check?(limit_date)
+    require 'date'
+
+    @current_date = Date.today.to_time
+    @limit_date = DateTime.parse(limit_date)
+
+    diff_date = (limit_date - @current_date).to_i
+    unless diff_date <= 14
+      flash[:error] = "回答期限に設定できるのは最長2週間先までです"
+      return false
+    end
+
+    unless @current_date < @limit_date
+      flash[:notice] = "期限日 > 現在日時は入力できません"
+      return false
+    end
+
+    #上記の条件に当てはまらない場合、trueを返す
+    return true
+  end
+
+
 end
